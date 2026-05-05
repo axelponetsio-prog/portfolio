@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio | Développeur & Apprenant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Portfolio</div>
+            <ul>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#veille">Veille</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="container hero">
+            <h1>Bonjour, je suis <span class="highlight">[Ton Prénom]</span></h1>
+            <p>Étudiant en informatique passionné par la création de solutions numériques.</p>
+            <a href="#parcours" class="btn">Découvrir mon profil</a>
+        </div>
+    </header>
+
+    <!-- Mon Parcours -->
+    <section id="parcours" class="container">
+        <h2 class="section-title">Mon Parcours</h2>
+        <div class="cv-download">
+            <a href="CV_Nom_Prenom.pdf" target="_blank" class="btn btn-secondary">📄 Télécharger mon CV (PDF)</a>
+        </div>
+        
+        <div class="parcours-grid">
+            <div class="parcours-col">
+                <h3><span class="icon">🎓</span> Scolaire</h3>
+                <div class="item">
+                    <h4>Nom du Diplôme / Formation</h4>
+                    <span class="date">2023 - Présent</span>
+                    <p>Nom de l'école / Université - Spécialisation et points clés appris.</p>
+                </div>
+                <div class="item">
+                    <h4>Baccalauréat [Série]</h4>
+                    <span class="date">2020 - 2023</span>
+                    <p>Lycée [Nom] - Mention éventuelle.</p>
+                </div>
+            </div>
+            
+            <div class="parcours-col">
+                <h3><span class="icon">💼</span> Métiers & Stages</h3>
+                <div class="item">
+                    <h4>Poste occupé</h4>
+                    <span class="date">Été 2024</span>
+                    <p>Entreprise [Nom] - Missions principales et technologies utilisées.</p>
+                </div>
+                <div class="item">
+                    <h4>Stage en entreprise</h4>
+                    <span class="date">Mars 2023</span>
+                    <p>Entreprise [Nom] - Découverte du milieu professionnel et [Projet réalisé].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            
+            <h3>💻 Projets en cours de formation</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>Projet Académique 1</h4>
+                    <p>Description courte du projet réalisé durant les cours. Technologies : HTML, CSS, JS.</p>
+                    <a href="#" class="link">Voir sur GitHub →</a>
+                </div>
+                <div class="project-card">
+                    <h4>Projet Académique 2</h4>
+                    <p>Base de données ou application réalisée pour un examen.</p>
+                    <a href="#" class="link">Voir sur GitHub →</a>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">🚀 Projets Personnels</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>Application Mobile Perso</h4>
+                    <p>Un projet réalisé sur mon temps libre pour apprendre React Native.</p>
+                    <a href="#" class="link">Lien du projet →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Veille Technologique -->
+    <section id="veille" class="container">
+        <h2 class="section-title">Veille Technologique</h2>
+        <div class="veille-box">
+            <h3>Sujet : [Thème de ta veille, ex: L'IA dans le Web]</h3>
+            <p>Je réalise actuellement une veille approfondie sur l'évolution de [Ton Sujet]. Cette section regroupe mes recherches, mes sources et mon analyse des tendances actuelles.</p>
+            <div class="veille-actions">
+                <a href="lien-vers-ton-diaporama.html" class="btn btn-accent">📊 Accéder au Diaporama</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2024 [Ton Nom] - Tous droits réservés</p>
+            <div class="socials">
+                <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="mailto:email@exemple.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
