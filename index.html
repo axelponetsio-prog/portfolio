@@ -3,143 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio | Administrateur systèmes et réseaux </title>
+    <title>Axel Ponet | Portfolio Admin Sys & Réseaux</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Axel Ponet - Portfolio</div>
-            <ul>
-                <li><a href="#parcours">Parcours</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#veille">Veille</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div class="logo">AP.<span>admin</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="parcours.html">Parcours</a></li>
+                <li><a href="projets.html">Projets</a></li>
+                <li><a href="veille.html">Veille</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header>
-        <div class="container hero">
-            <h1>Bonjour, je suis <span class="highlight">Axel</span></h1>
-            <p>Étudiant en systèmes et réseaux passionné par la cybersécurité.</p>
-            <a href="#parcours" class="btn">Découvrir mon profil</a>
+    <header class="hero">
+        <div class="container">
+            <div class="terminal-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            </div>
+            <div class="hero-content">
+                <h1>Bonjour, je suis <span class="highlight">Axel Ponet</span></h1>
+                <p class="typewriter">> Étudiant en BTS SIO (SISR) passionné par la cybersécurité et l'infrastructure.</p>
+                <div class="hero-cta">
+                    <a href="projets.html" class="btn">Consulter mes projets</a>
+                    <a href="mailto:a.ponet@orange.fr" class="btn btn-outline">Me contacter</a>
+                </div>
+            </div>
         </div>
     </header>
-
-    <!-- Mon Parcours -->
-    <section id="parcours" class="container">
-        <h2 class="section-title">Mon Parcours</h2>
-        <div class="cv-download">
-            <a href="CV_Nom_Prenom.pdf" target="_blank" class="btn btn-secondary">📄 Télécharger mon CV (PDF)</a>
-        </div>
-        
-        <div class="parcours-grid">
-            <div class="parcours-col">
-                <h3><span class="icon">🎓</span> Scolaire</h3>
-                <div class="item">
-                    <h4>BTS SIO</h4>
-                    <span class="date">2024 - 2026</span>
-                    <p>Lycée Carcouët - Administration systèmes et réseaux.</p>
-                </div>
-                <div class="item">
-                    <h4>BTS Tourisme</h4>
-                    <span class="date">2022 - 2024</span>
-                    <p>Lycée Carcouët - Obtenu.</p>
-                </div>
-                <div class="item">
-                    <h4>BAC STI2D</h4>
-                    <span class="date">2022</span>
-                    <p>Lycée Appert - Mention Assez Bien</p>
-                </div>
-            </div>
-            
-            <div class="parcours-col">
-                <h3><span class="icon">💼</span> Métiers & Stages</h3>
-                <div class="item">
-                    <h4>CDD étudiant</h4>
-                    <span class="date">2025 + 2026 (JUILLET - AOUT)</span>
-                    <p>Leclerc Orvault Grand-Val - Mise en rayon, vente, conseil client, rangement, montage/démontage.</p>
-                </div>
-                <div class="item">
-                    <h4>Administrateur systèmes et réseaux</h4>
-                    <span class="date"> 2026 (JANVIER - FEVRIER) + 2025 (MAI -JUIN) </span>
-                    <p>Laboratoire de mathématiques Jean Leray - Nantes : Mise en place de serveurs, installation de solutions type Nextcloud, brassage et inventaire.</p>
-                </div>
-                <div class="item">
-                    <h4>Récéptionniste</h4>
-                    <span class="date">2024 (JANVIER - FEVRIER) </span>
-                    <p>Hôtel de la Cité - Nantes : Récéption d'un centaine de chambres, service, entretien ménager.</p>
-                </div>
-                <div class="item">
-                    <h4>Agent polyvalent</h4>
-                    <span class="date">2023 (MAI - AOUT) </span>
-                    <p>Camping le Lidon - Deux-Sèvres : Gestion des réservations et encaissements de 170 emplacements, stocks, accompagnements clients, service et bar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projets -->
-    <section id="projets" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Mes Projets</h2>
-            
-            <h3>💻 Projets en cours de formation</h3>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h4>Administration sous Windows Server redondante </h4>
-                    <p>●Gestion utilisateurs
-                       ●Stratégies de groupe
-                       ●DHCP
-                       ●Script de création utilisateurs</p>
-                    <a href="#" class="link">Voir sur GitHub →</a>
-                </div>
-                <div class="project-card">
-                    <h4>Load balancing de serveurs Webs sous HAPROXY</h4>
-                    <p>Base de données ou application réalisée pour un examen.</p>
-                    <a href="#" class="link">Voir sur GitHub →</a>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 40px;">🚀 Projets Personnels</h3>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h4>Home-lab</h4>
-                    <p>Serveur Proxmox hébergé sur SSH externe avec serveur Web et Nextcloud (amélioré continuellement).</p>
-                    <a href="#" class="link">Lien du projet →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Veille Technologique -->
-    <section id="veille" class="container">
-        <h2 class="section-title">Veille Technologique</h2>
-        <div class="veille-box">
-            <h3>Sujet : [Thème de ta veille, ex: L'IA dans le Web]</h3>
-            <p>Je réalise actuellement une veille approfondie sur l'évolution de [Ton Sujet]. Cette section regroupe mes recherches, mes sources et mon analyse des tendances actuelles.</p>
-            <div class="veille-actions">
-                <a href="lien-vers-ton-diaporama.html" class="btn btn-accent">📊 Accéder au Diaporama</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <p>&copy; 2024 [Ton Nom] - Tous droits réservés</p>
-            <div class="socials">
-                <a href="#">LinkedIn</a> | <a href="#">GitHub</a> | <a href="a.ponet@orange.fr">Email</a>
-            </div>
-        </div>
-    </footer>
-
 </body>
 </html>
