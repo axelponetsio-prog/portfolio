@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Parcours | Axel Ponet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">AP.<span>admin</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="parcours.html" class="active">Parcours</a></li>
+                <li><a href="projets.html">Projets</a></li>
+                <li><a href="veille.html">Veille</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-section">
+        <div class="container">
+            <h1 class="page-title">Mon Parcours</h1>
+            <div class="cv-action">
+                <a href="CV_Axel_Ponet.pdf" class="btn-cv">📄 Télécharger mon CV complet</a>
+            </div>
+
+            <div class="grid-2">
+                <div class="timeline-box">
+                    <h2>🎓 Formation</h2>
+                    <div class="timeline-item">
+                        <span class="badge">2024 - 2026</span>
+                        <h3>BTS SIO (SISR)</h3>
+                        <p>Lycée Carcouët - Administration systèmes et réseaux.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="badge">2022 - 2024</span>
+                        <h3>BTS Tourisme</h3>
+                        <p>Lycée Carcouët - Diplôme obtenu.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-box">
+                    <h2>💼 Expériences</h2>
+                    <div class="timeline-item">
+                        <span class="badge">Janv - Fév 2026</span>
+                        <h3>Admin Systèmes & Réseaux (Stage)</h3>
+                        <p>Laboratoire Jean Leray (Nantes) : Nextcloud, brassage, serveurs.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="badge">2025 - 2026</span>
+                        <h3>CDD Étudiant</h3>
+                        <p>Leclerc Orvault - Vente et logistique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
