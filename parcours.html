@@ -9,41 +9,63 @@
 <body>
     
     <nav class="main-nav">
-        <div class="container">>
+        <div class="container">
             <div class="logo">AP<span>.admin</span></div>
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="parcours.html">Parcours</a></li>
                 <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html">Projets</a></li>
                 <li><a href="veille.html">Veille</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="parcours" class="container">
-        <h2 class="section-title">Mon Parcours</h2>
+    <section class="page-section">
+        <div class="container">
+            <h1 class="page-title">📚 Mon Parcours</h1>
+            
+            <div class="parcours-grid">
+                <div class="parcours-col">
+                    <h3 class="col-title"><span class="icon">🎓</span> Formation</h3>
+                    <div class="timeline-item">
+                        <span class="date">2024 - 2026</span>
+                        <h4>BTS SIO (SISR)</h4>
+                        <p class="location">Lycée Carcouët - Nantes</p>
+                        <p class="desc">Administration systèmes et réseaux - Spécialisation dans l'infrastructure IT.</p>
+                        <ul class="task-list">
+                            <li>Active Directory & GPO</li>
+                            <li>Administration Linux (Debian)</li>
+                            <li>Virtualisation et conteneurisation</li>
+                            <li>Sécurité des systèmes</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="parcours-grid">
-            <div class="parcours-col">
-                <h3 class="col-title"><span class="icon">🎓</span> Formation</h3>
-                <div class="timeline-item">
-                    <span class="date">2024 - 2026</span>
-                    <h4>BTS SIO (SISR)</h4>
-                    <p class="location">Lycée Carcouët - Nantes</p>
-                    <p class="desc">Administration systèmes et réseaux.</p>
-                </div>
-                </div>
-    
-            <div class="parcours-col">
-                <h3 class="col-title"><span class="icon">💼</span> Expériences</h3>
-                <div class="timeline-item">
-                    <span class="date">Janv - Fév 2026</span>
-                    <h4>Admin Systèmes & Réseaux (Stage)</h4>
-                    <p class="location">Laboratoire Jean Leray</p>
-                    <ul class="task-list">
-                        <li>Mise en place de serveurs Nextcloud</li>
-                        <li>Brassage et inventaire réseau</li>
-                    </ul>
+                <div class="parcours-col">
+                    <h3 class="col-title"><span class="icon">💼</span> Expériences</h3>
+                    
+                    <div class="timeline-item">
+                        <span class="date">Janv - Fév 2026</span>
+                        <h4>Admin Systèmes & Réseaux (Stage)</h4>
+                        <p class="location">Laboratoire Jean Leray</p>
+                        <ul class="task-list">
+                            <li>Mise en place de serveurs Nextcloud</li>
+                            <li>Brassage et inventaire réseau</li>
+                            <li>Maintenance infrastructure IT</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="date">Présent</span>
+                        <h4>Apprentissage Pratique</h4>
+                        <p class="location">Home-Lab Personnel</p>
+                        <ul class="task-list">
+                            <li>Gestion hyperviseur Proxmox</li>
+                            <li>Déploiement de services (DNS, DHCP)</li>
+                            <li>Automatisation avec Bash</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
