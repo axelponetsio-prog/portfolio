@@ -2,13 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Axel Ponet | Admin Sys</title>
+    <title>Axel Ponet | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav style="padding: 20px; text-align: center; border-bottom: 1px solid #334155;">
+    <nav style="padding: 20px; text-align: center;">
         <a href="index.html" style="color: var(--primary); text-decoration: none; margin: 0 15px;">Accueil</a>
         <a href="parcours.html" style="color: white; text-decoration: none; margin: 0 15px;">Parcours</a>
         <a href="competences.html" style="color: white; text-decoration: none; margin: 0 15px;">Compétences</a>
@@ -16,38 +16,41 @@
 
     <div class="terminal-window">
         <div class="terminal-header">
-            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+            <div class="dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+            <div style="font-size: 0.8rem; opacity: 0.5;">bash — axel@debian</div>
         </div>
         <div class="terminal-body">
             <p><span class="prompt">axel@debian:~$</span> whoami</p>
-            <p class="response">Axel Ponet - Étudiant SISR</p>
-            <p><span class="prompt">axel@debian:~$</span> ls skills/</p>
-            <p class="response">Cybersécurité  Infrastructure  Réseaux  Virtualisation</p>
-            <p><span class="prompt">axel@debian:~$</span> ./contact_me.sh_</p>
-            
+            <p class="response">Axel Ponet - Étudiant en Administration Systèmes & Réseaux</p>
+            <p><span class="prompt">axel@debian:~$</span> ./show_options.sh</p>
             <div style="margin-top: 30px;">
-                <button onclick="openModal()" class="btn">Me contacter</button>
-                <a href="competences.html" class="btn" style="background:transparent; border: 1px solid var(--primary); color: var(--primary); margin-left: 10px;">Voir compétences</a>
+                <button onclick="toggleModal()" class="btn">Me contacter</button>
+                <a href="competences.html" class="btn" style="background:transparent; border: 1px solid var(--primary); color: var(--primary); margin-left: 10px;">Explorer mes compétences</a>
             </div>
         </div>
     </div>
 
     <div id="contactModal" class="modal">
         <div class="modal-content">
-            <h2 style="margin-top:0">📩 Nouveau Message</h2>
-            <form action="https://formspree.io/f/ton_id" method="POST" enctype="multipart/form-data">
-                <input type="email" name="email" placeholder="Votre Email" style="width:100%; margin-bottom:15px; padding:10px; background:#0f172a; border:1px solid #334155; color:white;">
-                <textarea name="message" placeholder="Votre message..." style="width:100%; height:100px; margin-bottom:15px; padding:10px; background:#0f172a; border:1px solid #334155; color:white;"></textarea>
-                <input type="file" name="upload" style="margin-bottom:15px; color:white;">
-                <button type="submit" class="btn" style="width:100%">Envoyer</button>
-                <p onclick="closeModal()" style="text-align:center; cursor:pointer; margin-top:15px; font-size:0.8rem;">Annuler</p>
+            <h2 style="margin-bottom: 20px;">📩 Nouveau Message</h2>
+            <form action="https://formspree.io/f/votre_id" method="POST" enctype="multipart/form-data">
+                <input type="email" name="email" placeholder="Votre Email" style="width:100%; padding:10px; margin-bottom:15px; background:#0b0f1a; border:1px solid #334155; color:white;" required>
+                <textarea name="message" placeholder="Votre message..." style="width:100%; height:120px; padding:10px; margin-bottom:15px; background:#0b0f1a; border:1px solid #334155; color:white;" required></textarea>
+                
+                <label style="font-size:0.8rem; display:block; margin-bottom:5px;">📎 Joindre un fichier :</label>
+                <input type="file" name="upload" style="margin-bottom:20px; color:white;">
+                
+                <button type="submit" class="btn" style="width:100%;">Envoyer l'email</button>
+                <p onclick="toggleModal()" style="text-align:center; cursor:pointer; margin-top:15px; font-size:0.8rem;">Fermer</p>
             </form>
         </div>
     </div>
 
     <script>
-        function openModal() { document.getElementById('contactModal').style.display = 'block'; }
-        function closeModal() { document.getElementById('contactModal').style.display = 'none'; }
+        function toggleModal() {
+            const m = document.getElementById('contactModal');
+            m.style.display = (m.style.display === 'block') ? 'none' : 'block';
+        }
     </script>
 </body>
 </html>
