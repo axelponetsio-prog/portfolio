@@ -1,39 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axel Ponet | Portfolio Admin Sys & Réseaux</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <div class="logo">AP.<span>admin</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="parcours.html">Parcours</a></li>
-                <li><a href="projets.html">Projets</a></li>
-                <li><a href="veille.html">Veille</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="container">
+<header class="hero">
+    <div class="container">
+        <div class="terminal-window">
             <div class="terminal-header">
-                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <div class="buttons">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">bash — axel@debian: ~</div>
             </div>
-            <div class="hero-content">
-                <h1>Bonjour, je suis <span class="highlight">Axel Ponet</span></h1>
-                <p class="typewriter">> Étudiant en BTS SIO (SISR) passionné par la cybersécurité et l'infrastructure.</p>
+            <div class="terminal-body">
+                <p><span class="prompt">axel@debian:~$</span> whoami</p>
+                <p class="response">Axel Ponet - Étudiant Administration Systèmes & Réseaux</p>
+                <p><span class="prompt">axel@debian:~$</span> ls skills/</p>
+                <p class="response highlight-skills">Cybersécurité  Infrastructure  Réseaux  Virtualisation</p>
+                <p><span class="prompt">axel@debian:~$</span> <span class="typewriter">./contact_me.sh</span><span class="cursor">_</span></p>
                 <div class="hero-cta">
-                    <a href="projets.html" class="btn">Consulter mes projets</a>
-                    <a href="mailto:a.ponet@orange.fr" class="btn btn-outline">Me contacter</a>
+                    <a href="competences.html" class="btn">Consulter mes compétences</a>
+                    <button onclick="toggleContact()" class="btn btn-outline">Me contacter</button>
                 </div>
             </div>
         </div>
-    </header>
-</body>
-</html>
+    </div>
+</header>
