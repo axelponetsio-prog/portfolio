@@ -10,12 +10,13 @@
 <body>
 
     <nav class="main-nav">
-        <div class="container">>
+        <div class="container">
             <div class="logo">AP<span>.admin</span></div>
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="parcours.html">Parcours</a></li>
                 <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html">Projets</a></li>
                 <li><a href="veille.html">Veille</a></li>
             </ul>
         </div>
@@ -30,14 +31,14 @@
         </div>
         <div class="terminal-body">
             <p><span class="prompt">axel@debian:~$</span> whoami</p>
-            <p class="response">Axel Ponet - Étudiant SISR</p>
+            <p class="response">Axel Ponet - Étudiant BTS SIO (SISR)</p>
             <p><span class="prompt">axel@debian:~$</span> ls skills/</p>
             <p class="response">Cybersécurité  Infrastructure  Réseaux  Virtualisation</p>
             <p><span class="prompt">axel@debian:~$</span> ./contact_me.sh_</p>
             
             <div class="terminal-actions" style="margin-top: 40px;">
-                <button onclick="openModal()" class="btn">Me contacter</button>
-                <a href="competences.html" class="btn btn-outline" style="margin-left:10px;">Voir compétences</a>
+                <button onclick="openModal()" class="btn">💬 Me contacter</button>
+                <a href="competences.html" class="btn btn-outline" style="margin-left:10px;">🛠️ Voir compétences</a>
             </div>
         </div>
     </div>
@@ -45,22 +46,22 @@
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2 style="color: #38bdf8; margin-bottom:20px;">📩 Messagerie Directe</h2>
-            <form action="https://formspree.io/f/ton_id" method="POST" enctype="multipart/form-data">
+            <h2 style="color: #38bdf8; margin-bottom:20px;">📩 Me contacter</h2>
+            <form action="https://formspree.io/f/xyzaazwb" method="POST" enctype="multipart/form-data">
                 <input type="email" name="email" placeholder="Votre Email" required>
-                <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
-                <label style="display:block; margin-bottom:10px; font-size:0.8rem;">📎 Pièce jointe :</label>
+                <textarea name="message" placeholder="Votre projet ou question..." rows="5" required></textarea>
+                <label style="display:block; margin-bottom:10px; font-size:0.8rem;">📎 Pièce jointe (CV, cahier des charges...) :</label>
                 <input type="file" name="attachment" style="border:none; padding:0;">
-                <button type="submit" class="btn" style="width:100%; margin-top:10px;">Envoyer</button>
+                <button type="submit" class="btn" style="width:100%; margin-top:15px;">Envoyer</button>
             </form>
         </div>
     </div>
 
-    <footer id="contact" style="text-align:center; padding: 40px; border-top: 1px solid rgba(56, 189, 248, 0.1);">
-        <p>&copy; 2024 Axel Ponet</p>
-        <div style="margin-top:15px;">
-            <a href="mailto:a.ponet@orange.fr" style="color:#38bdf8; text-decoration:none;">Email</a> | 
-            <a href="#" style="color:#38bdf8; text-decoration:none;">LinkedIn</a>
+    <footer id="contact" style="text-align:center; padding: 40px; border-top: 1px solid rgba(56, 189, 248, 0.1); margin-top: 80px;">
+        <p style="margin:0; font-size: 0.95rem;">© 2026 Axel Ponet</p>
+        <div style="margin-top:20px; display:flex; justify-content:center; gap:30px;">
+            <a href="mailto:a.ponet@orange.fr" style="color:#38bdf8; text-decoration:none; font-weight:bold;">📧 a.ponet@orange.fr</a>
+            <a href="https://www.linkedin.com/in/axel-ponet/" target="_blank" style="color:#38bdf8; text-decoration:none; font-weight:bold;">💼 LinkedIn</a>
         </div>
     </footer>
 
