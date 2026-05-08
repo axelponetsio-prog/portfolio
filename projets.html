@@ -28,28 +28,28 @@
             <div class="project-category">
                 <h2>📚 Projets Formation (BTS SIO)</h2>
                 <div class="project-grid">
-                    <div class="p-card">
+                    <div class="p-card" data-project="ad-redondant">
                         <div class="p-tag">Infrastructure</div>
                         <h3>Windows Server Redondant</h3>
                         <p>Déploiement d'Active Directory avec GPO, configuration de DHCP et scripts automatisés pour la gestion d'utilisateurs.</p>
                         <small>Compétences : AD DS, PowerShell, GPO</small>
                     </div>
                     
-                    <div class="p-card">
+                    <div class="p-card" data-project="haproxy">
                         <div class="p-tag">Réseau</div>
                         <h3>Load Balancing HAProxy</h3>
                         <p>Répartition de charge sur serveurs Web pour garantir la haute disponibilité et optimiser la performance.</p>
                         <small>Compétences : HAProxy, Routage, Linux</small>
                     </div>
                     
-                    <div class="p-card">
+                    <div class="p-card" data-project="parefeu">
                         <div class="p-tag">Sécurité</div>
                         <h3>Configuration Pare-feu</h3>
                         <p>Mise en place de règles de filtrage réseau, gestion des zones démilitarisées et politique de contrôle d'accès.</p>
                         <small>Compétences : Sécurité réseau, ACL, DMZ</small>
                     </div>
                     
-                    <div class="p-card">
+                    <div class="p-card" data-project="linux-admin">
                         <div class="p-tag">Système</div>
                         <h3>Administration Linux</h3>
                         <p>Gestion de serveurs Debian/Ubuntu, configuration réseau, gestion des droits et scripts Bash pour automatisation.</p>
@@ -61,13 +61,13 @@
             <div class="project-category" style="margin-top: 60px;">
                 <h2>🏠 Home-Lab Personnel</h2>
                 <div class="project-grid">
-                    <div class="p-card wide">
+                    <div class="p-card wide" data-project="proxmox-nextcloud">
                         <h3>Serveur Proxmox & Nextcloud</h3>
                         <p>Mise en place d'une infrastructure virtualisée complète avec hyperviseur Proxmox, déploiement de Nextcloud pour le stockage sécurisé et gestion distante via SSH.</p>
                         <small>Compétences : Proxmox, Virtualisation, Conteneurs, Nextcloud, SSH</small>
                     </div>
                     
-                    <div class="p-card wide">
+                    <div class="p-card wide" data-project="dns-dhcp">
                         <h3>Infrastructure DNS/DHCP</h3>
                         <p>Déploiement de services critiques avec Bind9 (DNS) et ISC-DHCP pour gestion automatique des adresses IP et résolution de noms.</p>
                         <small>Compétences : DNS, DHCP, Administration réseau</small>
@@ -77,7 +77,132 @@
         </div>
     </section>
 
+    <!-- MODALE DE DÉTAIL -->
+    <div id="detail-modal" class="modal detail-modal">
+        <div class="modal-content detail-content">
+            <span class="close" onclick="closeDetailModal()">&times;</span>
+            <h2 id="detail-title"></h2>
+            <div id="detail-description" class="description"></div>
+            <div id="detail-images" class="image-gallery"></div>
+        </div>
+    </div>
+
     <script>
+        const projectDetails = {
+            "ad-redondant": {
+                title: "Windows Server Redondant",
+                description: `
+                    <p>Mise en place d'une infrastructure Active Directory hautement disponible.</p>
+                    <ul>
+                        <li>Déploiement de 2 contrôleurs de domaine</li>
+                        <li>Stratégies de groupe (GPO) : restriction logicielle, fond d'écran, mappage de lecteurs</li>
+                        <li>Service DHCP redondant (split-scope)</li>
+                        <li>Script PowerShell pour création massive d'utilisateurs</li>
+                    </ul>
+                `,
+                images: [
+                    "images/projets/ad_schema.png",
+                    "images/projets/gpo_settings.png"
+                ]
+            },
+            "haproxy": {
+                title: "Load Balancing HAProxy",
+                description: `
+                    <p>Répartition de charge entre plusieurs serveurs web Apache.</p>
+                    <ul>
+                        <li>Configuration de HAProxy en mode http</li>
+                        <li>Tests de montée en charge avec ApacheBench</li>
+                        <li>Gestion des sessions persistantes</li>
+                    </ul>
+                `,
+                images: []
+            },
+            "parefeu": {
+                title: "Configuration Pare-feu",
+                description: `
+                    <p>Sécurisation d'un réseau local avec règles de filtrage.</p>
+                    <ul>
+                        <li>Pare-feu sous Linux (iptables)</li>
+                        <li>Création d'une DMZ pour les services publics</li>
+                        <li>Journalisation des paquets rejetés</li>
+                    </ul>
+                `,
+                images: []
+            },
+            "linux-admin": {
+                title: "Administration Linux",
+                description: `
+                    <p>Scripts d'automatisation et gestion de serveurs Debian.</p>
+                `,
+                images: []
+            },
+            "proxmox-nextcloud": {
+                title: "Serveur Proxmox & Nextcloud",
+                description: `
+                    <p>Mon labo personnel : un hyperviseur Proxmox hébergeant plusieurs services.</p>
+                    <ul>
+                        <li>VM Nextcloud pour le cloud privé</li>
+                        <li>Conteneur LXC pour Pi-hole (blocage pub)</li>
+                        <li>Snapshots et sauvegardes automatiques</li>
+                    </ul>
+                `,
+                images: [
+                    "images/projets/proxmox_vm_list.png",
+                    "images/projets/nextcloud_dashboard.png"
+                ]
+            },
+            "dns-dhcp": {
+                title: "Infrastructure DNS/DHCP",
+                description: `
+                    <p>Services réseau critiques pour le laboratoire.</p>
+                    <ul>
+                        <li>DNS avec Bind9 : zone directe et inverse</li>
+                        <li>DHCP : attribution dynamique et réservations</li>
+                        <li>Redirection DNS conditionnelle</li>
+                    </ul>
+                `,
+                images: []
+            }
+        };
+
+        function openDetailModal(projectKey) {
+            const data = projectDetails[projectKey];
+            if (!data) return;
+            document.getElementById('detail-title').textContent = data.title;
+            document.getElementById('detail-description').innerHTML = data.description;
+            const imgContainer = document.getElementById('detail-images');
+            imgContainer.innerHTML = '';
+            if (data.images && data.images.length > 0) {
+                data.images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = data.title;
+                    imgContainer.appendChild(img);
+                });
+            } else {
+                imgContainer.innerHTML = '<p style="color:#94a3b8;">Ajoutez vos captures ici.</p>';
+            }
+            document.getElementById('detail-modal').style.display = 'block';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').style.display = 'none';
+        }
+
+        document.querySelectorAll('.p-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const project = card.getAttribute('data-project');
+                openDetailModal(project);
+            });
+        });
+
+        window.onclick = function(event) {
+            const detailModal = document.getElementById('detail-modal');
+            if (event.target === detailModal) closeDetailModal();
+            const contactModal = document.getElementById('contactModal');
+            if (contactModal && event.target === contactModal) closeModal();
+        };
+
         function fadeOutIn(event) {
             event.preventDefault();
             const url = event.target.href;
