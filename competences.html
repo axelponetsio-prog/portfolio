@@ -25,7 +25,7 @@
         <div class="container">
             <h1 class="page-title">🛠️ Mes Compétences Techniques</h1>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card" data-skill="systemes">
                     <h3>🖥️ Systèmes</h3>
                     <ul class="skill-list">
                         <li>Active Directory & GPO</li>
@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 
-                <div class="skill-card">
+                <div class="skill-card" data-skill="reseaux">
                     <h3>🌐 Réseaux</h3>
                     <ul class="skill-list">
                         <li>VLAN et Routage</li>
@@ -45,7 +45,7 @@
                     </ul>
                 </div>
                 
-                <div class="skill-card">
+                <div class="skill-card" data-skill="securite">
                     <h3>🛡️ Sécurité</h3>
                     <ul class="skill-list">
                         <li>Pare-feu & Filtrage réseau</li>
@@ -55,7 +55,7 @@
                     </ul>
                 </div>
                 
-                <div class="skill-card">
+                <div class="skill-card" data-skill="virtualisation">
                     <h3>☁️ Virtualisation</h3>
                     <ul class="skill-list">
                         <li>Proxmox & KVM</li>
@@ -65,7 +65,7 @@
                     </ul>
                 </div>
                 
-                <div class="skill-card">
+                <div class="skill-card" data-skill="outils">
                     <h3>⚙️ Outils & Services</h3>
                     <ul class="skill-list">
                         <li>Nextcloud (Stockage)</li>
@@ -75,7 +75,7 @@
                     </ul>
                 </div>
                 
-                <div class="skill-card">
+                <div class="skill-card" data-skill="autres">
                     <h3>📊 Autres</h3>
                     <ul class="skill-list">
                         <li>HTML/CSS/JavaScript</li>
@@ -88,7 +88,147 @@
         </div>
     </section>
 
+    <!-- MODALE DE DÉTAIL -->
+    <div id="detail-modal" class="modal detail-modal">
+        <div class="modal-content detail-content">
+            <span class="close" onclick="closeDetailModal()">&times;</span>
+            <h2 id="detail-title"></h2>
+            <div id="detail-description" class="description"></div>
+            <div id="detail-images" class="image-gallery"></div>
+        </div>
+    </div>
+
     <script>
+        // Données détaillées pour chaque compétence (à personnaliser)
+        const skillDetails = {
+            systemes: {
+                title: "🖥️ Systèmes",
+                description: `
+                    <p>Maîtrise des environnements Windows Server et Linux pour l'administration d'infrastructures.</p>
+                    <ul>
+                        <li><strong>Active Directory :</strong> Création/gestions d'utilisateurs, stratégies GPO, déploiement de contrôleurs de domaine redondants.</li>
+                        <li><strong>Linux (Debian/Ubuntu) :</strong> Administration au quotidien, configuration réseau, gestion des droits, script Bash.</li>
+                        <li><strong>Scripting :</strong> Automatisation avec Bash et PowerShell pour les tâches répétitives.</li>
+                    </ul>
+                `,
+                images: [
+                    "images/systemes/ad_users.png",
+                    "images/systemes/gpo_editor.png",
+                    "images/systemes/linux_shell.png"
+                ] // Remplace par tes propres images !
+            },
+            reseaux: {
+                title: "🌐 Réseaux",
+                description: `
+                    <p>Connaissance approfondie des protocoles réseau et des services critiques.</p>
+                    <ul>
+                        <li><strong>VLAN & Routage :</strong> Segmentation réseau, routage inter-VLAN.</li>
+                        <li><strong>DHCP/DNS :</strong> Mise en place de serveurs Bind9 et ISC-DHCP.</li>
+                        <li><strong>HAProxy :</strong> Répartition de charge pour la haute disponibilité.</li>
+                    </ul>
+                `,
+                images: []
+            },
+            securite: {
+                title: "🛡️ Sécurité",
+                description: `
+                    <p>Application des principes de sécurité réseau et système.</p>
+                    <ul>
+                        <li>Configuration de pare-feu (iptables, firewalld, pfSense).</li>
+                        <li>Gestion des ACL et zones DMZ.</li>
+                        <li>Veille continue sur les vulnérabilités.</li>
+                    </ul>
+                `,
+                images: []
+            },
+            virtualisation: {
+                title: "☁️ Virtualisation",
+                description: `
+                    <p>Virtualisation avancée avec Proxmox et conteneurisation Docker.</p>
+                    <ul>
+                        <li>Orchestration de machines virtuelles via Proxmox VE.</li>
+                        <li>Conteneurs Docker pour l'isolation d'applications.</li>
+                        <li>Gestion des ressources (CPU, RAM, stockage).</li>
+                    </ul>
+                `,
+                images: ["images/virtualisation/proxmox_dashboard.png"]
+            },
+            outils: {
+                title: "⚙️ Outils & Services",
+                description: `
+                    <p>Utilisation des outils collaboratifs et de versionnement.</p>
+                    <ul>
+                        <li>Nextcloud pour le stockage sécurisé.</li>
+                        <li>Git pour le contrôle de versions.</li>
+                        <li>Connexion SSH pour l'administration distante.</li>
+                    </ul>
+                `,
+                images: []
+            },
+            autres: {
+                title: "📊 Autres",
+                description: `
+                    <p>Compétences transversales en développement web et automatisation.</p>
+                    <ul>
+                        <li>Création de ce portfolio en HTML/CSS/JS.</li>
+                        <li>Automatisation de tâches IT via scripts.</li>
+                        <li>Documentation technique précise.</li>
+                    </ul>
+                `,
+                images: []
+            }
+        };
+
+        // Fonctions pour la modale
+        function openDetailModal(skillKey) {
+            const data = skillDetails[skillKey];
+            if (!data) return;
+
+            document.getElementById('detail-title').textContent = data.title;
+            document.getElementById('detail-description').innerHTML = data.description;
+
+            const imgContainer = document.getElementById('detail-images');
+            imgContainer.innerHTML = '';
+            if (data.images && data.images.length > 0) {
+                data.images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = data.title;
+                    imgContainer.appendChild(img);
+                });
+            } else {
+                imgContainer.innerHTML = '<p style="color:#94a3b8;">Aucune image pour le moment.</p>';
+            }
+
+            document.getElementById('detail-modal').style.display = 'block';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').style.display = 'none';
+        }
+
+        // Écouteurs sur les cartes
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const skill = card.getAttribute('data-skill');
+                openDetailModal(skill);
+            });
+        });
+
+        // Fermer en cliquant à l'extérieur
+        window.onclick = function(event) {
+            const detailModal = document.getElementById('detail-modal');
+            if (event.target === detailModal) {
+                closeDetailModal();
+            }
+            // Fermer aussi la modale de contact si ouverte
+            const contactModal = document.getElementById('contactModal');
+            if (contactModal && event.target === contactModal) {
+                closeModal();
+            }
+        };
+
+        // Animation de transition (existante)
         function fadeOutIn(event) {
             event.preventDefault();
             const url = event.target.href;
