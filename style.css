@@ -139,6 +139,9 @@ body.page-enter {
 /* Terminal Linux */
 .terminal-window {
     background: #111827;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
     border-radius: 12px;
     border: 1px solid #334155;
     max-width: 1000px;
@@ -195,10 +198,13 @@ body.page-enter {
 .terminal-title { margin-left: 20px; font-size: 0.85rem; opacity: 0.6; font-family: monospace; }
 
 .terminal-body {
-    padding: 40px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 40px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.1rem;
     line-height: 1.6;
+    max-height: none;
 }
 
 .prompt { color: var(--accent); font-weight: bold; }
