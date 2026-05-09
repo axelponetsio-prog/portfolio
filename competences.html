@@ -24,6 +24,9 @@
     <section class="page-section">
         <div class="container">
             <h1 class="page-title">🛠️ Mes Compétences Techniques</h1>
+            <div class="search-container">
+                <input type="text" id="searchSkills" placeholder="Rechercher une compétence...">
+            </div>
             <div class="skills-grid">
                 <!-- SYSTÈMES -->
                 <div class="skill-card" data-skill="systemes">
@@ -198,6 +201,15 @@
                 images: []
             }
         };
+
+        const searchInput = document.getElementById('searchSkills');
+        searchInput.addEventListener('keyup', function() {
+            const term = this.value.toLowerCase();
+            document.querySelectorAll('.skill-card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(term) ? '' : 'none';
+            });
+        });
 
         // Fonctions pour la modale (inchangées)
         function openDetailModal(skillKey) {
