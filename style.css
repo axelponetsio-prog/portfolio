@@ -849,36 +849,6 @@ footer a:hover {
     box-shadow: 0 15px 35px rgba(56, 189, 248, 0.5);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        gap: 15px;
-        font-size: 0.9rem;
-    }
-    
-    .page-title {
-        font-size: 1.8rem;
-    }
-    
-    .parcours-grid,
-    .project-grid,
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .veille-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .terminal-body {
-        padding: 20px;
-        font-size: 0.95rem;
-    }
-    
-    .modal-content {
-        margin: 20% auto;
-    }
-    
 /* ====== MODALE DE DÉTAIL (compétences & projets) ====== */
 .detail-modal .detail-content {
     max-height: 85vh;
@@ -954,4 +924,35 @@ footer a:hover {
 .detail-content::-webkit-scrollbar-thumb:hover {
     background: #0ea5e9;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .parcours-grid,
+    .project-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .veille-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .terminal-body {
+        padding: 20px;
+        font-size: 0.95rem;
+    }
+    
+    .modal-content {
+        margin: 0;
+    }
+    
 }
