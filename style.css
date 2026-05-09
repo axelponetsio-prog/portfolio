@@ -753,24 +753,6 @@ footer a:hover {
 
 }
 
-/* Crée un pseudo-élément qui affiche un curseur clignotant */
-.terminal-input-line {
-    position: relative;
-}
-
-.terminal-input-line::after {
-    content: "_";
-    color: var(--primary);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    position: absolute;
-    left: calc(1.5rem + 8px); /* Ajuste selon la largeur du prompt */
-    top: 50%;
-    transform: translateY(-50%);
-    animation: blink 1s step-end infinite;
-    pointer-events: none; /* Pour ne pas gêner la frappe */
-}
-
 .terminal-command {
     margin-bottom: 2px;
     opacity: 0.9;
