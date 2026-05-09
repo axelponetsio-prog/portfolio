@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Axel Ponet | Portfolio Admin Sys</title>
+    <meta name="description" content="Portfolio d'Axel Ponet, étudiant BTS SIO (SISR). Administration systèmes, réseaux et cybersécurité.">
+    <meta property="og:title" content="Axel Ponet | Admin Sys">
+    <meta property="og:description" content="Portfolio interactif d'un futur administrateur systèmes et réseaux.">
+    <meta property="og:image" content="https://ton-site.com/images/preview.png">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
-<!-- Bouton pour rouvrir le terminal après fermeture -->
-<button id="reopen-terminal" title="Ouvrir le terminal">⌨️</button>
-    
 <body>
 
     <nav class="main-nav">
@@ -35,21 +36,19 @@
             </div>
             <div class="terminal-title">bash — axel@debian: ~</div>
         </div>
-        <div class="terminal-body">
-            <!-- ton contenu actuel (qui suis-je, ls skills, etc.) -->
-            <p><span class="prompt">axel@debian:~$</span> whoami</p>
-            <p class="response">Axel Ponet - Étudiant BTS SIO (SISR)</p>
-            <p><span class="prompt">axel@debian:~$</span> ls skills/</p>
-            <p class="response">Cybersécurité  Infrastructure  Réseaux  Virtualisation</p>
-            <p><span class="prompt">axel@debian:~$</span> ./contact_me.sh_</p>
-            
-            <div class="terminal-actions" style="margin-top: 40px;">
-                <button onclick="openModal()" class="btn">💬 Me contacter</button>
-                <a href="competences.html" onclick="fadeOutIn(event)" class="btn btn-outline" style="margin-left:10px;">🛠️ Voir compétences</a>
-            </div>
+        <div class="terminal-body" id="terminalBody">
+            <!-- Sortie dynamique -->
+        </div>
+        <div class="terminal-input-line">
+            <span class="prompt">axel@debian:~$</span>
+            <input type="text" id="terminalInput" autofocus placeholder="tapez help pour commencer...">
         </div>
     </div>
 
+    <!-- Bouton pour rouvrir le terminal après fermeture -->
+    <button id="reopen-terminal" title="Ouvrir le terminal">⌨️</button>
+
+    <!-- Modale de contact (inchangée) -->
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -69,46 +68,140 @@
         <div style="margin-top:20px; display:flex; justify-content:center; gap:30px; flex-wrap: wrap;">
             <a href="mailto:a.ponet@orange.fr" style="color:#38bdf8; text-decoration:none; font-weight:bold;">📧 a.ponet@orange.fr</a>
             <a href="https://www.linkedin.com/in/axel-ponet/" target="_blank" style="color:#38bdf8; text-decoration:none; font-weight:bold;">💼 LinkedIn</a>
+            <a href="https://github.com/axelponetsio-prog" target="_blank" style="color:#38bdf8; text-decoration:none; font-weight:bold;">🐙 GitHub</a>
         </div>
     </footer>
 
     <script>
-        function openModal() { document.getElementById('contactModal').style.display = 'block'; }
-        function closeModal() { document.getElementById('contactModal').style.display = 'none'; }
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('contactModal')) closeModal();
-        }
-        
-        function fadeOutIn(event) {
-            event.preventDefault();
-            const url = event.target.href;
-            document.body.classList.add('page-exit');
-            setTimeout(() => {
-                window.location.href = url;
-            }, 400);
-        }
-        
-        window.addEventListener('load', () => {
-            document.body.classList.add('page-enter');
-        });
-    </script>
+        // ====== TERMINAL INTERACTIF ======
+        const terminalBody = document.getElementById('terminalBody');
+        const input = document.getElementById('terminalInput');
+        let commandHistory = [];
+        let historyIndex = -1;
 
-    <script>
+        // Commande initiale (affichée au chargement)
+        const initialCommands = [
+            { type: 'command', text: 'whoami' },
+            { type: 'output', text: 'Axel Ponet - Étudiant BTS SIO (SISR)' },
+            { type: 'command', text: 'ls skills/' },
+            { type: 'output', text: 'Cybersécurité  Infrastructure  Réseaux  Virtualisation' },
+            { type: 'command', text: './contact_me.sh' },
+            { type: 'output', text: 'Tapez help pour voir les commandes disponibles.' }
+        ];
+
+        function appendLine(text, type = 'output') {
+            const div = document.createElement('div');
+            div.className = type === 'command' ? 'terminal-command' : 'terminal-output';
+            if (type === 'command') {
+                div.innerHTML = `<span class="prompt">axel@debian:~$</span> ${text}`;
+            } else {
+                div.textContent = text;
+            }
+            terminalBody.appendChild(div);
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+
+        function displayInitial() {
+            initialCommands.forEach(cmd => appendLine(cmd.text, cmd.type));
+        }
+
+        // Machine à écrire simple pour l'accueil (on pourrait l'utiliser pour l'initial, mais on garde l'affichage direct pour la réactivité)
+        // On conserve l'affichage direct des commandes initiales.
+
+        displayInitial();
+
+        // Gestion du prompt interactif
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const cmd = input.value.trim().toLowerCase();
+                if (cmd === '') return;
+
+                appendLine(cmd, 'command');
+                commandHistory.push(cmd);
+                historyIndex = commandHistory.length;
+                input.value = '';
+
+                processCommand(cmd);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    input.value = commandHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    input.value = commandHistory[historyIndex];
+                } else {
+                    historyIndex = commandHistory.length;
+                    input.value = '';
+                }
+            }
+        });
+
+        function processCommand(cmd) {
+            switch(cmd) {
+                case 'help':
+                    appendLine('Commandes disponibles :');
+                    appendLine('  whoami     - Affiche mon identité');
+                    appendLine('  skills     - Liste mes domaines de compétences');
+                    appendLine('  about      - À propos de moi');
+                    appendLine('  cv         - Télécharger mon CV');
+                    appendLine('  contact    - Formulaire de contact');
+                    appendLine('  neofetch   - Affiche les infos système');
+                    appendLine('  clear      - Efface le terminal');
+                    appendLine('  help       - Cette aide');
+                    break;
+                case 'whoami':
+                    appendLine('Axel Ponet - Étudiant BTS SIO (SISR)');
+                    break;
+                case 'skills':
+                    appendLine('Cybersécurité  Infrastructure  Réseaux  Virtualisation');
+                    break;
+                case 'about':
+                    appendLine('Passionné par l\'administration systèmes et réseaux, je suis en BTS SIO option SISR.');
+                    appendLine('Mon objectif : concevoir et maintenir des infrastructures fiables et sécurisées.');
+                    appendLine('Reconversion depuis le tourisme, j\'apporte un regard neuf et une forte motivation.');
+                    break;
+                case 'cv':
+                    appendLine('Téléchargement du CV...');
+                    window.open('cv.pdf', '_blank'); // Assure-toi d'avoir un cv.pdf à la racine
+                    break;
+                case 'contact':
+                    openModal();
+                    break;
+                case 'neofetch':
+                    appendLine(`
+  ⠀⠀⠀⢀⣤⣶⣿⣿⣿⣿⣶⣤⡀
+  ⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄   Axel@Debian
+  ⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄  OS: Debian 12
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿  Shell: bash
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿  Étudiant: BTS SIO SISR
+  ⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁   Uptime: 2 ans
+  ⠀⠀⠀⠈⠉⠛⠛⠛⠛⠉⠁
+                    `.trim());
+                    break;
+                case 'clear':
+                    terminalBody.innerHTML = '';
+                    break;
+                default:
+                    appendLine(`Commande inconnue : ${cmd}. Tapez help pour la liste.`);
+            }
+        }
+
+        // ====== BOUTONS DE LA FENÊTRE ======
         (function() {
             const terminal = document.getElementById('mainTerminal');
             const reopenBtn = document.getElementById('reopen-terminal');
-    
-            // Gestion des clics sur les boutons de la barre de titre
+
             document.querySelector('.terminal-header .window-buttons').addEventListener('click', function(e) {
                 const btn = e.target.closest('button');
                 if (!btn) return;
-    
-                // Évite de cumuler les états : on retire d'abord les classes d'état sauf pour minimisé (toggle)
+
                 if (btn.classList.contains('minimize')) {
                     terminal.classList.toggle('minimized');
-                    // Si on était maximisé, on enlève aussi maximisé
                     terminal.classList.remove('maximized');
-                    // Si on était fermé, on rouvre (peu probable)
                     terminal.classList.remove('closed');
                 } else if (btn.classList.contains('maximize')) {
                     terminal.classList.toggle('maximized');
@@ -117,24 +210,45 @@
                 } else if (btn.classList.contains('close')) {
                     terminal.classList.add('closed');
                     terminal.classList.remove('minimized', 'maximized');
-                    // Affiche le bouton de réouverture
                     reopenBtn.style.display = 'flex';
                 }
             });
-    
-            // Réouverture du terminal
+
             reopenBtn.addEventListener('click', function() {
                 terminal.classList.remove('closed', 'minimized', 'maximized');
                 reopenBtn.style.display = 'none';
+                input.focus();
             });
-    
-            // Option : si on clique sur l'en-tête quand il est minimisé, on le restaure
+
             document.querySelector('.terminal-header').addEventListener('click', function(e) {
                 if (terminal.classList.contains('minimized') && !e.target.closest('button')) {
                     terminal.classList.remove('minimized');
                 }
             });
         })();
+
+        // ====== MODALE DE CONTACT ======
+        function openModal() { document.getElementById('contactModal').style.display = 'block'; }
+        function closeModal() { document.getElementById('contactModal').style.display = 'none'; }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('contactModal')) closeModal();
+            const detailModal = document.getElementById('detail-modal');
+            if (detailModal && event.target === detailModal) closeDetailModal();
+        };
+
+        // ====== TRANSITIONS DE PAGE ======
+        function fadeOutIn(event) {
+            event.preventDefault();
+            const url = event.target.href;
+            document.body.classList.add('page-exit');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 400);
+        }
+        window.addEventListener('load', () => {
+            document.body.classList.add('page-enter');
+            document.getElementById('terminalInput').focus();
+        });
     </script>
 </body>
 </html>
