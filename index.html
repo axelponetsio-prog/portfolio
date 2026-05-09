@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
+<!-- Bouton pour rouvrir le terminal après fermeture -->
+<button id="reopen-terminal" title="Ouvrir le terminal">⌨️</button>
+    
 <body>
 
     <nav class="main-nav">
@@ -22,16 +26,17 @@
         </div>
     </nav>
 
-    <div class="terminal-window">
+    <div class="terminal-window" id="mainTerminal">
         <div class="terminal-header">
             <div class="window-buttons">
-                <button class="win-btn minimize">─</button>
-                <button class="win-btn maximize">□</button>
-                <button class="win-btn close">✕</button>
+                <button class="win-btn minimize" title="Minimiser">─</button>
+                <button class="win-btn maximize" title="Maximiser">□</button>
+                <button class="win-btn close" title="Fermer">✕</button>
             </div>
             <div class="terminal-title">bash — axel@debian: ~</div>
         </div>
         <div class="terminal-body">
+            <!-- ton contenu actuel (qui suis-je, ls skills, etc.) -->
             <p><span class="prompt">axel@debian:~$</span> whoami</p>
             <p class="response">Axel Ponet - Étudiant BTS SIO (SISR)</p>
             <p><span class="prompt">axel@debian:~$</span> ls skills/</p>
