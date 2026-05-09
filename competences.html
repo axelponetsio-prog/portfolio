@@ -25,6 +25,7 @@
         <div class="container">
             <h1 class="page-title">🛠️ Mes Compétences Techniques</h1>
             <div class="skills-grid">
+                <!-- SYSTÈMES -->
                 <div class="skill-card" data-skill="systemes">
                     <h3>🖥️ Systèmes</h3>
                     <ul class="skill-list">
@@ -35,60 +36,65 @@
                     </ul>
                 </div>
                 
+                <!-- RÉSEAUX -->
                 <div class="skill-card" data-skill="reseaux">
                     <h3>🌐 Réseaux</h3>
                     <ul class="skill-list">
-                        <li>VLAN et Routage</li>
-                        <li>DHCP/DNS</li>
-                        <li>HAProxy (Load Balancing)</li>
-                        <li>Protocoles TCP/IP</li>
+                        <li>Routage dynamique</li>
+                        <li>Haute disponibilité</li>
+                        <li>VLAN & Agrégation</li>
+                        <li>Services réseau (DHCP/DNS)</li>
+                        <li>VPN & Sécurité niveau 2</li>
                     </ul>
                 </div>
                 
+                <!-- SÉCURITÉ -->
                 <div class="skill-card" data-skill="securite">
                     <h3>🛡️ Sécurité</h3>
                     <ul class="skill-list">
-                        <li>Pare-feu & Filtrage réseau</li>
-                        <li>Virtualisation sécurisée</li>
-                        <li>Veille technologique</li>
-                        <li>Principes zero-trust</li>
+                        <li>Pare-feu & Filtrage</li>
+                        <li>Tests d'intrusion</li>
+                        <li>Sécurité des commutateurs</li>
+                        <li>VPN</li>
                     </ul>
                 </div>
                 
+                <!-- VIRTUALISATION -->
                 <div class="skill-card" data-skill="virtualisation">
                     <h3>☁️ Virtualisation</h3>
                     <ul class="skill-list">
-                        <li>Proxmox & KVM</li>
-                        <li>Docker & Conteneurs</li>
-                        <li>VirtualBox/Hyper-V</li>
-                        <li>Gestion des ressources</li>
+                        <li>Hyperviseurs (Proxmox, Hyper-V)</li>
+                        <li>Conteneurisation (Docker)</li>
+                        <li>Gestion ressources & sauvegardes</li>
                     </ul>
                 </div>
                 
+                <!-- OUTILS & SERVICES -->
                 <div class="skill-card" data-skill="outils">
                     <h3>⚙️ Outils & Services</h3>
                     <ul class="skill-list">
-                        <li>Nextcloud (Stockage)</li>
-                        <li>Git & Contrôle de versions</li>
-                        <li>SSH & Administration distante</li>
-                        <li>Monitoring & Logs</li>
+                        <li>Stockage (Nextcloud)</li>
+                        <li>Messagerie (Postfix, Webmail)</li>
+                        <li>Supervision (Zabbix)</li>
+                        <li>Contrôle de versions (Git)</li>
                     </ul>
                 </div>
                 
+                <!-- AUTRES -->
                 <div class="skill-card" data-skill="autres">
                     <h3>📊 Autres</h3>
                     <ul class="skill-list">
-                        <li>HTML/CSS/JavaScript</li>
-                        <li>Automatisation IT</li>
+                        <li>Développement web</li>
+                        <li>Planification (MPM, PERT, GANTT)</li>
                         <li>Documentation technique</li>
-                        <li>Troubleshooting réseau</li>
+                        <li>Langue anglaise</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MODALE DE DÉTAIL -->
+    <!-- MODALE DE DÉTAIL (inchangée) -->
     <div id="detail-modal" class="modal detail-modal">
         <div class="modal-content detail-content">
             <span class="close" onclick="closeDetailModal()">&times;</span>
@@ -99,45 +105,50 @@
     </div>
 
     <script>
-        // Données détaillées pour chaque compétence (à personnaliser)
+        // Contenu des popups (inchangé)
         const skillDetails = {
             systemes: {
                 title: "🖥️ Systèmes",
                 description: `
                     <p>Maîtrise des environnements Windows Server et Linux pour l'administration d'infrastructures.</p>
                     <ul>
-                        <li><strong>Gestion d'utilisateurs/services :</strong> Création/gestions d'utilisateurs, stratégies GPO, déploiement de contrôleurs de domaine redondants, mise en place de partages de fichiers, solutions d'administration.<strong>Vu lors de :</strong> TP Windows Server, TP Samba, TP RosarioSIS</li>
-                        <li><strong>Supervision/Gestion de parc :</strong> Administration au quotidien, installation et configuration d'outils de supervision et de gestion de parc.<strong>Vu lors de :</strong> TP GLPI, ZABBIX</li>
-                        <li><strong>Gestion de fichiers centralisés/Stockage :</strong> Conception et déploiement d'une infrastructure de stockage centralisée.<strong>Vu lors de :</strong> TP SAN, TP NAS OpenMediaVault</li>
-                        <li>Disponibilité :</strong> Etablissement d'une redondance de bases de données ou encore de solutions d'équilibrage de charge.<strong>Vu lors de :</strong> TP CLUSTER MariaDB, TP HAPROXY avec KeepAlived</li>
+                        <li><strong>Windows Server :</strong> Gestion centralisée d’utilisateurs, DHCP, distribution de services. TP de cluster MariaDB, SAMBA, sauvegarde.</li>
+                        <li><strong>Linux Debian/Ubuntu :</strong> Serveur SAN (iSCSI), serveur NAS, GLPI pour la gestion de parc, ROSARIOSIS (logiciel d’admin scolaire).</li>
+                        <li><strong>Scripting Bash & PowerShell :</strong> Automatisation de création d’utilisateurs (TP PowerShell).</li>
                     </ul>
                 `,
                 images: [
                     "images/systemes/ad_users.png",
                     "images/systemes/gpo_editor.png",
                     "images/systemes/linux_shell.png"
-                ] // Remplace par tes propres images !
+                ]
             },
             reseaux: {
                 title: "🌐 Réseaux",
                 description: `
-                    <p>Connaissance approfondie des protocoles réseau et des services critiques.</p>
+                    <p>Mise en œuvre et configuration avancée de réseaux d’entreprise.</p>
                     <ul>
-                        <li><strong>VLAN & Routage :</strong> Segmentation réseau, routage inter-VLAN.</li>
-                        <li><strong>DHCP/DNS :</strong> Mise en place de serveurs Bind9 et ISC-DHCP.</li>
-                        <li><strong>HAProxy :</strong> Répartition de charge pour la haute disponibilité.</li>
+                        <li><strong>Routage dynamique :</strong> TP RIPv1/v2, OSPF, VLSM.</li>
+                        <li><strong>Haute disponibilité :</strong> HSRP pour routeurs et switches.</li>
+                        <li><strong>VLAN :</strong> Configuration statique et dynamique (VTP), agrégation de liens (LACP/PAGP).</li>
+                        <li><strong>Services réseau :</strong> Serveur DHCP, DNS.</li>
+                        <li><strong>VPN & sécurité couche 2 :</strong> IPsec VPN, port-security.</li>
                     </ul>
                 `,
-                images: []
+                images: [
+                    "images/reseaux/routage.png",
+                    "images/reseaux/vlan.png"
+                ]
             },
             securite: {
                 title: "🛡️ Sécurité",
                 description: `
                     <p>Application des principes de sécurité réseau et système.</p>
                     <ul>
-                        <li>Configuration de pare-feu (iptables, firewalld, pfSense).</li>
-                        <li>Gestion des ACL et zones DMZ.</li>
-                        <li>Veille continue sur les vulnérabilités.</li>
+                        <li><strong>Pare-feu & filtrage :</strong> Configuration de règles sur pare-feu, DMZ.</li>
+                        <li><strong>Tests d’intrusion :</strong> TP Kali Linux (infiltration d’un serveur web).</li>
+                        <li><strong>Sécurité switch :</strong> Port-security, authentification 802.1X.</li>
+                        <li><strong>VPN :</strong> Mise en place d’un tunnel IPsec.</li>
                     </ul>
                 `,
                 images: []
@@ -145,49 +156,55 @@
             virtualisation: {
                 title: "☁️ Virtualisation",
                 description: `
-                    <p>Virtualisation avancée avec Proxmox et conteneurisation Docker.</p>
+                    <p>Virtualisation avancée avec Proxmox, Docker et solutions Microsoft.</p>
                     <ul>
-                        <li>Orchestration de machines virtuelles via Proxmox VE.</li>
-                        <li>Conteneurs Docker pour l'isolation d'applications.</li>
-                        <li>Gestion des ressources (CPU, RAM, stockage).</li>
+                        <li><strong>Hyperviseurs :</strong> Proxmox, Hyper-V, VirtualBox.</li>
+                        <li><strong>Conteneurisation :</strong> TP Docker (déploiement d’applications isolées).</li>
+                        <li><strong>Infrastructure :</strong> Gestion des ressources (CPU, RAM, stockage), snapshots, sauvegardes.</li>
                     </ul>
                 `,
-                images: ["images/virtualisation/proxmox_dashboard.png"]
+                images: [
+                    "images/virtualisation/proxmox_dashboard.png",
+                    "images/virtualisation/docker.png"
+                ]
             },
             outils: {
                 title: "⚙️ Outils & Services",
                 description: `
-                    <p>Utilisation des outils collaboratifs et de versionnement.</p>
+                    <p>Mise en place de services collaboratifs et de supervision.</p>
                     <ul>
-                        <li>Nextcloud pour le stockage sécurisé.</li>
-                        <li>Git pour le contrôle de versions.</li>
-                        <li>Connexion SSH pour l'administration distante.</li>
+                        <li><strong>Nextcloud :</strong> Stockage centralisé sécurisé.</li>
+                        <li><strong>Messagerie :</strong> Serveur mail complet (Postfix, Exim4) avec webmail.</li>
+                        <li><strong>Supervision :</strong> Zabbix pour la surveillance réseau.</li>
+                        <li><strong>Git :</strong> Contrôle de versions et collaboration.</li>
                     </ul>
                 `,
-                images: []
+                images: [
+                    "images/outils/nextcloud.png",
+                    "images/outils/zabbix.png"
+                ]
             },
             autres: {
                 title: "📊 Autres",
                 description: `
-                    <p>Compétences transversales en développement web et automatisation.</p>
+                    <p>Compétences transversales essentielles.</p>
                     <ul>
-                        <li>Création de ce portfolio en HTML/CSS/JS.</li>
-                        <li>Automatisation de tâches IT via scripts.</li>
-                        <li>Documentation technique précise.</li>
+                        <li><strong>Développement web :</strong> HTML, CSS, JavaScript (réalisation de ce portfolio).</li>
+                        <li><strong>Planification :</strong> Diagrammes MPM, PERT, GANTT.</li>
+                        <li><strong>Documentation technique :</strong> Rédaction de guides et de procédures.</li>
+                        <li><strong>Langues :</strong> Anglais courant technique.</li>
                     </ul>
                 `,
                 images: []
             }
         };
 
-        // Fonctions pour la modale
+        // Fonctions pour la modale (inchangées)
         function openDetailModal(skillKey) {
             const data = skillDetails[skillKey];
             if (!data) return;
-
             document.getElementById('detail-title').textContent = data.title;
             document.getElementById('detail-description').innerHTML = data.description;
-
             const imgContainer = document.getElementById('detail-images');
             imgContainer.innerHTML = '';
             if (data.images && data.images.length > 0) {
@@ -200,7 +217,6 @@
             } else {
                 imgContainer.innerHTML = '<p style="color:#94a3b8;">Aucune image pour le moment.</p>';
             }
-
             document.getElementById('detail-modal').style.display = 'block';
         }
 
@@ -208,7 +224,6 @@
             document.getElementById('detail-modal').style.display = 'none';
         }
 
-        // Écouteurs sur les cartes
         document.querySelectorAll('.skill-card').forEach(card => {
             card.addEventListener('click', () => {
                 const skill = card.getAttribute('data-skill');
@@ -216,20 +231,13 @@
             });
         });
 
-        // Fermer en cliquant à l'extérieur
         window.onclick = function(event) {
             const detailModal = document.getElementById('detail-modal');
-            if (event.target === detailModal) {
-                closeDetailModal();
-            }
-            // Fermer aussi la modale de contact si ouverte
+            if (event.target === detailModal) closeDetailModal();
             const contactModal = document.getElementById('contactModal');
-            if (contactModal && event.target === contactModal) {
-                closeModal();
-            }
+            if (contactModal && event.target === contactModal) closeModal();
         };
 
-        // Animation de transition (existante)
         function fadeOutIn(event) {
             event.preventDefault();
             const url = event.target.href;
