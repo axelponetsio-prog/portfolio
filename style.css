@@ -274,6 +274,7 @@ body.page-enter {
     animation: slideUp 0.3s ease;
     /* Supprime la marge auto, le centrage est géré par flex */
     margin: 0;
+    position: relative; 
 }
 
 @keyframes slideUp {
