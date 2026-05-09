@@ -232,8 +232,6 @@
         function closeModal() { document.getElementById('contactModal').style.display = 'none'; }
         window.onclick = function(event) {
             if (event.target == document.getElementById('contactModal')) closeModal();
-            const detailModal = document.getElementById('detail-modal');
-            if (detailModal && event.target === detailModal) closeDetailModal();
         };
 
         // ====== TRANSITIONS DE PAGE ======
