@@ -749,8 +749,8 @@ footer a:hover {
     font-size: 1rem;
     caret-color: var(--primary);
     outline: none;
-    caret-color: transparent;
-    position: relative;
+    caret-color: var(--primary); /* curseur natif bleu */
+
 }
 
 /* Crée un pseudo-élément qui affiche un curseur clignotant */
@@ -769,15 +769,6 @@ footer a:hover {
     transform: translateY(-50%);
     animation: blink 1s step-end infinite;
     pointer-events: none; /* Pour ne pas gêner la frappe */
-}
-
-#terminalInput::after {
-    content: "_";
-    color: var(--primary);
-    animation: blink 1s step-end infinite;
-}
-@keyframes blink {
-    50% { opacity: 0; }
 }
 
 .terminal-command {
