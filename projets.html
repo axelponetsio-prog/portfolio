@@ -204,6 +204,7 @@
             if (!data) return;
             document.getElementById('detail-title').textContent = data.title;
             document.getElementById('detail-description').innerHTML = data.description;
+            document.getElementById('detail-modal').style.display = 'flex';
             const imgContainer = document.getElementById('detail-images');
             imgContainer.innerHTML = '';
             if (data.images && data.images.length > 0) {
