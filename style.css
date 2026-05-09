@@ -749,6 +749,16 @@ footer a:hover {
     font-size: 1rem;
     caret-color: var(--primary);
     outline: none;
+    caret-color: transparent;
+}
+
+#terminalInput::after {
+    content: "_";
+    color: var(--primary);
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 .terminal-command {
