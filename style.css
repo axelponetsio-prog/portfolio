@@ -750,6 +750,25 @@ footer a:hover {
     caret-color: var(--primary);
     outline: none;
     caret-color: transparent;
+    position: relative;
+}
+
+/* Crée un pseudo-élément qui affiche un curseur clignotant */
+.terminal-input-line {
+    position: relative;
+}
+
+.terminal-input-line::after {
+    content: "_";
+    color: var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    position: absolute;
+    left: calc(1.5rem + 8px); /* Ajuste selon la largeur du prompt */
+    top: 50%;
+    transform: translateY(-50%);
+    animation: blink 1s step-end infinite;
+    pointer-events: none; /* Pour ne pas gêner la frappe */
 }
 
 #terminalInput::after {
