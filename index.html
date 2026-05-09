@@ -169,7 +169,12 @@
                     window.open('cv.pdf', '_blank'); // Assure-toi d'avoir un cv.pdf à la racine
                     break;
                 case 'contact':
-                    openModal();
+                    // Force la page à défiler tout en haut pour voir le terminal
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // Ouvre la modale après un court délai pour laisser le défilement se faire
+                    setTimeout(() => {
+                        openModal();
+                    }, 300);
                     break;
                 case 'neofetch':
                     appendLine(`
