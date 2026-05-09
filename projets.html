@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Projets | Axel Ponet</title>
+    <meta name="description" content="Projets d'administration systèmes et réseaux par Axel Ponet : Active Directory, HAProxy, Proxmox...">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,31 +26,40 @@
         <div class="container">
             <h1 class="page-title">💻 Portfolio Technique</h1>
             
+            <!-- Boutons de filtre -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+                <button class="filter-btn" data-filter="reseau">Réseau</button>
+                <button class="filter-btn" data-filter="securite">Sécurité</button>
+                <button class="filter-btn" data-filter="systeme">Système</button>
+            </div>
+
             <div class="project-category">
                 <h2>📚 Projets Formation (BTS SIO)</h2>
                 <div class="project-grid">
-                    <div class="p-card" data-project="ad-redondant">
+                    <div class="p-card project-card" data-category="infrastructure" data-project="ad-redondant">
                         <div class="p-tag">Infrastructure</div>
                         <h3>Windows Server Redondant</h3>
                         <p>Déploiement d'Active Directory avec GPO, configuration de DHCP et scripts automatisés pour la gestion d'utilisateurs.</p>
                         <small>Compétences : AD DS, PowerShell, GPO</small>
                     </div>
                     
-                    <div class="p-card" data-project="haproxy">
+                    <div class="p-card project-card" data-category="reseau" data-project="haproxy">
                         <div class="p-tag">Réseau</div>
                         <h3>Load Balancing HAProxy</h3>
                         <p>Répartition de charge sur serveurs Web pour garantir la haute disponibilité et optimiser la performance.</p>
                         <small>Compétences : HAProxy, Routage, Linux</small>
                     </div>
                     
-                    <div class="p-card" data-project="parefeu">
+                    <div class="p-card project-card" data-category="securite" data-project="parefeu">
                         <div class="p-tag">Sécurité</div>
                         <h3>Configuration Pare-feu</h3>
                         <p>Mise en place de règles de filtrage réseau, gestion des zones démilitarisées et politique de contrôle d'accès.</p>
                         <small>Compétences : Sécurité réseau, ACL, DMZ</small>
                     </div>
                     
-                    <div class="p-card" data-project="linux-admin">
+                    <div class="p-card project-card" data-category="systeme" data-project="linux-admin">
                         <div class="p-tag">Système</div>
                         <h3>Administration Linux</h3>
                         <p>Gestion de serveurs Debian/Ubuntu, configuration réseau, gestion des droits et scripts Bash pour automatisation.</p>
@@ -61,13 +71,13 @@
             <div class="project-category" style="margin-top: 60px;">
                 <h2>🏠 Home-Lab Personnel</h2>
                 <div class="project-grid">
-                    <div class="p-card wide" data-project="proxmox-nextcloud">
+                    <div class="p-card wide project-card" data-category="infrastructure" data-project="proxmox-nextcloud">
                         <h3>Serveur Proxmox & Nextcloud</h3>
                         <p>Mise en place d'une infrastructure virtualisée complète avec hyperviseur Proxmox, déploiement de Nextcloud pour le stockage sécurisé et gestion distante via SSH.</p>
                         <small>Compétences : Proxmox, Virtualisation, Conteneurs, Nextcloud, SSH</small>
                     </div>
                     
-                    <div class="p-card wide" data-project="dns-dhcp">
+                    <div class="p-card wide project-card" data-category="reseau" data-project="dns-dhcp">
                         <h3>Infrastructure DNS/DHCP</h3>
                         <p>Déploiement de services critiques avec Bind9 (DNS) et ISC-DHCP pour gestion automatique des adresses IP et résolution de noms.</p>
                         <small>Compétences : DNS, DHCP, Administration réseau</small>
@@ -164,6 +174,25 @@
                 images: []
             }
         };
+
+        // Filtrage
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
 
         function openDetailModal(projectKey) {
             const data = projectDetails[projectKey];
