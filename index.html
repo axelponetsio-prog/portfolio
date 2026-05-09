@@ -92,5 +92,49 @@
             document.body.classList.add('page-enter');
         });
     </script>
+
+    <script>
+        (function() {
+            const terminal = document.getElementById('mainTerminal');
+            const reopenBtn = document.getElementById('reopen-terminal');
+    
+            // Gestion des clics sur les boutons de la barre de titre
+            document.querySelector('.terminal-header .window-buttons').addEventListener('click', function(e) {
+                const btn = e.target.closest('button');
+                if (!btn) return;
+    
+                // Évite de cumuler les états : on retire d'abord les classes d'état sauf pour minimisé (toggle)
+                if (btn.classList.contains('minimize')) {
+                    terminal.classList.toggle('minimized');
+                    // Si on était maximisé, on enlève aussi maximisé
+                    terminal.classList.remove('maximized');
+                    // Si on était fermé, on rouvre (peu probable)
+                    terminal.classList.remove('closed');
+                } else if (btn.classList.contains('maximize')) {
+                    terminal.classList.toggle('maximized');
+                    terminal.classList.remove('minimized');
+                    terminal.classList.remove('closed');
+                } else if (btn.classList.contains('close')) {
+                    terminal.classList.add('closed');
+                    terminal.classList.remove('minimized', 'maximized');
+                    // Affiche le bouton de réouverture
+                    reopenBtn.style.display = 'flex';
+                }
+            });
+    
+            // Réouverture du terminal
+            reopenBtn.addEventListener('click', function() {
+                terminal.classList.remove('closed', 'minimized', 'maximized');
+                reopenBtn.style.display = 'none';
+            });
+    
+            // Option : si on clique sur l'en-tête quand il est minimisé, on le restaure
+            document.querySelector('.terminal-header').addEventListener('click', function(e) {
+                if (terminal.classList.contains('minimized') && !e.target.closest('button')) {
+                    terminal.classList.remove('minimized');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
