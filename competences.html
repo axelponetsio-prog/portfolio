@@ -248,13 +248,11 @@
             });
         });
 
-        window.onclick = function(event) {
+       window.onclick = function(event) {
             const detailModal = document.getElementById('detail-modal');
             if (event.target === detailModal) closeDetailModal();
-            const contactModal = document.getElementById('contactModal');
-            if (contactModal && event.target === contactModal) closeModal();
         };
-
+        
         function fadeOutIn(event) {
             event.preventDefault();
             const url = event.target.href;
