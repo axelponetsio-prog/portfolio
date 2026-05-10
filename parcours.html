@@ -34,7 +34,7 @@
                 <div class="parcours-col">
                     <h3 class="col-title"><span class="icon">🎓</span> Formation</h3>
                     <!-- Élément cliquable pour le BTS SIO -->
-                    <div class="timeline-item clickable" onclick="window.location.href='projets.html'; fadeOutIn(event)">
+                    <div class="timeline-item clickable" data-parcours="bts-sio">
                         <span class="date">2024 - 2026</span>
                         <h4>BTS SIO (SISR)</h4>
                         <p class="location">Lycée Carcouët - Nantes</p>
@@ -132,7 +132,14 @@
                     
                     <h3>🎯 Objectifs professionnels</h3>
                     <p>Le titulaire du BTS SIO option SISR peut exercer des fonctions telles que : administrateur systèmes et réseaux, technicien support, gestionnaire de parc informatique, ou encore intégrer une équipe de supervision en entreprise de services numériques (ESN) ou en DSI.</p>
-                    
+                    <p style="margin-top: 25px; text-align: center;">
+                        <a href="projets.html" 
+                           onclick="fadeOutIn(event)" 
+                           class="btn" 
+                           style="display: inline-block; text-decoration: none;">
+                           🚀 Voir mes projets
+                        </a>
+                    </p>
                     <p style="margin-top:20px;"><em>Cliquez sur les images ci-dessous pour les agrandir.</em></p>
                 `,
                 images: [
