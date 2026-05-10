@@ -375,6 +375,21 @@ form textarea {
     padding-bottom: 0;
 }
 
+/* Effet lumineux pour les éléments cliquables du parcours */
+.timeline-item.clickable {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 10px;
+    margin: -10px;           /* compense le padding pour ne pas décaler */
+}
+
+.timeline-item.clickable:hover {
+    background: rgba(56, 189, 248, 0.1);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
 .date {
     display: inline-block;
     background: rgba(16, 185, 129, 0.2);
