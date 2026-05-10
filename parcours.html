@@ -33,7 +33,8 @@
             <div class="parcours-grid">
                 <div class="parcours-col">
                     <h3 class="col-title"><span class="icon">🎓</span> Formation</h3>
-                    <div class="timeline-item">
+                    <!-- Élément cliquable pour le BTS SIO -->
+                    <div class="timeline-item" data-parcours="bts-sio" style="cursor: pointer;">
                         <span class="date">2024 - 2026</span>
                         <h4>BTS SIO (SISR)</h4>
                         <p class="location">Lycée Carcouët - Nantes</p>
@@ -90,7 +91,100 @@
         </div>
     </section>
 
+    <!-- MODALE DE DÉTAIL POUR LE PARCOURS -->
+    <div id="detail-modal" class="modal detail-modal">
+        <div class="modal-content detail-content">
+            <span class="close" onclick="closeDetailModal()">&times;</span>
+            <h2 id="detail-title"></h2>
+            <div id="detail-description" class="description"></div>
+            <div id="detail-images" class="image-gallery"></div>
+        </div>
+    </div>
+
     <script>
+        // Données détaillées pour le BTS SIO
+        const parcoursDetails = {
+            "bts-sio": {
+                title: "🎓 BTS SIO (Services Informatiques aux Organisations) - Option SISR",
+                description: `
+                    <p>Le BTS SIO est un diplôme de niveau Bac+2 qui forme des techniciens capables de gérer un parc informatique, d'administrer des réseaux et des systèmes, et de participer à la cybersécurité des infrastructures. L'option <strong>SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</strong> prépare spécifiquement aux métiers d'administrateur systèmes et réseaux.</p>
+                    
+                    <h3>📘 Contenu de la formation</h3>
+                    <p>La formation couvre les domaines suivants :</p>
+                    <ul>
+                        <li><strong>Administration des systèmes</strong> : Windows Server (Active Directory, GPO, DHCP, DNS), Linux (Debian/Ubuntu), scripts Bash et PowerShell.</li>
+                        <li><strong>Réseaux</strong> : protocoles TCP/IP, routage (RIP, OSPF, HSRP), VLAN, VPN, sécurité des commutateurs (port-security).</li>
+                        <li><strong>Virtualisation et Cloud</strong> : hyperviseurs (Proxmox, Hyper-V, VirtualBox), conteneurisation (Docker).</li>
+                        <li><strong>Cybersécurité</strong> : pare-feux, tests d'intrusion (Kali Linux), supervision (Zabbix), sécurisation des services.</li>
+                        <li><strong>Services et applications</strong> : messagerie (Postfix), stockage (Nextcloud, NAS/SAN), gestion de parc (GLPI).</li>
+                        <li><strong>Gestion de projet et développement</strong> : HTML, CSS, JavaScript, cycles de vie, planification (PERT, GANTT).</li>
+                    </ul>
+                    
+                    <h3>🧪 Exemples de travaux pratiques réalisés</h3>
+                    <p>Durant ma formation, j'ai réalisé de nombreux TP, notamment :</p>
+                    <ul>
+                        <li>Mise en place d'un domaine Active Directory redondant</li>
+                        <li>Configuration d'un répartiteur de charge HAProxy</li>
+                        <li>Déploiement d'un serveur Nextcloud pour le stockage d'entreprise</li>
+                        <li>Sécurisation d'un réseau avec pare-feu et DMZ</li>
+                        <li>Automatisation de tâches avec PowerShell et Bash</li>
+                    </ul>
+                    
+                    <h3>🎯 Objectifs professionnels</h3>
+                    <p>Le titulaire du BTS SIO option SISR peut exercer des fonctions telles que : administrateur systèmes et réseaux, technicien support, gestionnaire de parc informatique, ou encore intégrer une équipe de supervision en entreprise de services numériques (ESN) ou en DSI.</p>
+                    
+                    <p style="margin-top:20px;"><em>Cliquez sur les images ci-dessous pour les agrandir.</em></p>
+                `,
+                images: [
+                    "images/parcours/bts-sio-programme.png",
+                    "images/parcours/tp-active-directory.png",
+                    "images/parcours/tp-linux.png"
+                ]
+            }
+        };
+
+        // Ouverture de la modale
+        function openParcoursModal(key) {
+            const data = parcoursDetails[key];
+            if (!data) return;
+            document.getElementById('detail-title').textContent = data.title;
+            document.getElementById('detail-description').innerHTML = data.description;
+            
+            const imgContainer = document.getElementById('detail-images');
+            imgContainer.innerHTML = '';
+            if (data.images && data.images.length > 0) {
+                data.images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = data.title;
+                    img.loading = "lazy";
+                    imgContainer.appendChild(img);
+                });
+            } else {
+                imgContainer.innerHTML = '<p style="color:#94a3b8;">Aucune image pour le moment.</p>';
+            }
+            
+            document.getElementById('detail-modal').style.display = 'flex';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').style.display = 'none';
+        }
+
+        // Écouteur sur l'élément cliquable
+        document.querySelector('[data-parcours="bts-sio"]').addEventListener('click', function() {
+            openParcoursModal('bts-sio');
+        });
+
+        // Fermeture en cliquant à l'extérieur
+        window.onclick = function(event) {
+            const detailModal = document.getElementById('detail-modal');
+            if (event.target === detailModal) {
+                closeDetailModal();
+            }
+        };
+
+        // Animation de transition
         function fadeOutIn(event) {
             event.preventDefault();
             const url = event.target.href;
