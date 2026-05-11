@@ -122,8 +122,8 @@
                     <h3>🪟 Windows Server</h3>
                     <ul>
                         <li><strong>Active Directory</strong> : création et gestion d’un domaine, unités d’organisation, stratégies de groupe (GPO), filtrage de sécurité.</li>
-                        <li><strong>DHCP redondant</strong> : split‑scope, réservations, bascule automatique.</li>
-                        <li><strong>Services de fichiers</strong> : partages sécurisés, quotas, DFS, stockage SAN (iSCSI) et NAS.</li>
+                        <li><strong>DHCP redondant</strong> : réservations, bascule automatique.</li>
+                        <li><strong>Services de fichiers</strong> : partages sécurisés, stockage SAN (iSCSI) et NAS.</li>
                         <li><strong>Haute disponibilité</strong> : cluster MariaDB, cluster de fichiers, sauvegarde Windows Server Backup.</li>
                     </ul>
                     <h3>🐧 Linux (Debian/Ubuntu)</h3>
@@ -145,8 +145,8 @@
                         <li><strong>Haute disponibilité</strong> : HSRP, VRRP, basculement transparent des passerelles.</li>
                         <li><strong>VLAN</strong> : création, trunks 802.1Q, VTP (domaines, modes serveur/client), routage inter‑VLAN (Router on a stick).</li>
                         <li><strong>Agrégation de liens</strong> : LACP (norme IEEE 802.3ad), PAgP (propriétaire Cisco).</li>
-                        <li><strong>Services réseau</strong> : DHCP (serveur, relais, options avancées), DNS (Bind9, zones directes et inversées, transferts de zone).</li>
-                        <li><strong>VPN & sécurité couche 2</strong> : IPsec VPN site‑à‑site, port‑security (mac sticky, violation modes), 802.1X.</li>
+                        <li><strong>Services réseau</strong> : DHCP (serveur, relais, options avancées), DNS.</li>
+                        <li><strong>VPN & sécurité couche 2</strong> : IPsec VPN site‑à‑site, port‑security, 802.1X.</li>
                     </ul>
                     <p>Tous ces protocoles ont été mis en œuvre dans des TPs avec Cisco Packet Tracer ou sur du matériel physique.</p>
                 `
@@ -157,10 +157,10 @@
                     <p>Application des principes de défense en profondeur et tests d’intrusion.</p>
                     <ul>
                         <li><strong>Pare‑feu</strong> : configuration de règles entrantes/sortantes, DMZ, translation d’adresses (NAT/PAT), journalisation.</li>
-                        <li><strong>Tests d’intrusion</strong> : utilisation de Kali Linux (nmap, Metasploit, hydra) pour auditer un serveur web et proposer des correctifs.</li>
-                        <li><strong>Sécurité des commutateurs</strong> : port‑security (nombre max de MAC, violation shutdown/restrict), DHCP snooping, Dynamic ARP Inspection.</li>
+                        <li><strong>Tests d’intrusion</strong> : utilisation de Kali Linux (nmap, gobuster, wpscan) pour auditer un serveur web et proposer des correctifs.</li>
+                        <li><strong>Sécurité des commutateurs</strong> : port‑security (nombre max de MAC, ...), DHCP snooping.</li>
                         <li><strong>VPN</strong> : tunnels IPsec avec pré‑partage de clé, authentification par certificats.</li>
-                        <li><strong>Veille technologique</strong> : suivi des vulnérabilités (CVE), abonnement flux CERT‑FR, participation à des challenges Root‑Me.</li>
+                        <li><strong>Veille technologique</strong> : suivi des vulnérabilités (CVE).</li>
                     </ul>
                     <p>Ces pratiques me permettent d’avoir une approche proactive de la sécurité.</p>
                 `
@@ -173,7 +173,7 @@
                         <li><strong>Proxmox VE</strong> : création de machines virtuelles, conteneurs LXC, snapshots, sauvegardes programmées, migration à chaud.</li>
                         <li><strong>Hyper‑V</strong> : création de switchs virtuels, machines de génération 1/2, points de contrôle.</li>
                         <li><strong>Docker</strong> : écriture de Dockerfiles, utilisation de docker‑compose pour des stacks multi‑services (Nextcloud + MariaDB, WordPress).</li>
-                        <li><strong>Gestion des ressources</strong> : allocation CPU, RAM, stockage, Thin Provisioning, optimisation des performances.</li>
+                        <li><strong>Gestion des ressources</strong> : allocation CPU, RAM, stockage, optimisation des performances.</li>
                     </ul>
                     <p>J’utilise la virtualisation au quotidien dans mon home‑lab pour tester des architectures avant de les déployer en stage.</p>
                 `
@@ -184,9 +184,9 @@
                     <p>Mise en place de services collaboratifs et de supervision en entreprise.</p>
                     <ul>
                         <li><strong>Nextcloud</strong> : installation, configuration, gestion des utilisateurs, partages sécurisés, sauvegarde externe.</li>
-                        <li><strong>Messagerie</strong> : déploiement d’un serveur mail complet (Postfix, Dovecot, Webmail Roundcube), filtrage anti‑spam, SPF/DKIM/DMARC.</li>
+                        <li><strong>Messagerie</strong> : déploiement d’un serveur mail complet (Postfix, Dovecot), filtrage anti‑spam.</li>
                         <li><strong>Supervision</strong> : Zabbix (agents, templates, triggers, cartes réseau), alertes par email, tableaux de bord personnalisés.</li>
-                        <li><strong>Git</strong> : branches, merge, pull requests, GitHub Actions pour le déploiement continu de ce portfolio.</li>
+                        <li><strong>Git</strong> : GitHub Actions pour le déploiement continu de ce portfolio.</li>
                         <li><strong>SSH</strong> : administration distante sécurisée, tunnels SSH, clés asymétriques.</li>
                     </ul>
                     <p>Ces outils sont au cœur de mon quotidien d’administrateur.</p>
@@ -197,7 +197,6 @@
                 description: `
                     <p>Compétences transversales indispensables en entreprise.</p>
                     <ul>
-                        <li><strong>Développement web</strong> : HTML5, CSS3, JavaScript (réalisation de ce portfolio responsive avec animations et terminal interactif).</li>
                         <li><strong>Planification de projet</strong> : diagrammes MPM, PERT, GANTT, gestion des ressources.</li>
                         <li><strong>Documentation technique</strong> : guides d’installation, procédures pas‑à‑pas, schémas réseau avec draw.io.</li>
                         <li><strong>Anglais technique</strong> : lecture et rédaction de documentations, participation à des forums Stack Overflow, veille en anglais.</li>
