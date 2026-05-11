@@ -375,6 +375,24 @@ form textarea {
     padding-bottom: 0;
 }
 
+/* Grille de la documentation */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.doc-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
 /* Effet lumineux pour les éléments cliquables du parcours */
 .timeline-item.clickable {
     transition: all 0.3s ease;
