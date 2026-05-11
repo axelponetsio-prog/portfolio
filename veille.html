@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta name="description" content="Portfolio d'Axel Ponet, étudiant BTS SIO (SISR). Administration systèmes, réseaux et cybersécurité.">
-    <meta property="og:title" content="Axel Ponet | Admin Sys">
-    <meta property="og:description" content="Portfolio interactif d'un futur administrateur systèmes et réseaux.">
-    <meta property="og:image" content="https://axelponetsio-prog.github.io/portfolio/images/preview.png">
-    <meta property="og:type" content="website">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique | Axel Ponet</title>
+    <meta name="description" content="Veille technologique sur les outils de virtualisation : Proxmox, Docker, Hyper-V, Kubernetes. Actualités et analyses.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,27 +24,65 @@
 
     <section class="page-section">
         <div class="container">
-            <h1 class="page-title">📡 Veille Technologique</h1>
+            <h1 class="page-title">📡 Veille Technologique – Virtualisation</h1>
             
             <div class="veille-container">
                 <div class="veille-info">
-                    <h2>🔍 Thèmes de Veille Suivi</h2>
+                    <h2>🔍 Suivi des outils de virtualisation</h2>
                     <div class="veille-themes">
-                        <div class="theme-badge">🔐 Cybersécurité</div>
-                        <div class="theme-badge">☁️ Cloud Computing</div>
-                        <div class="theme-badge">⚡ Automatisation IT</div>
-                        <div class="theme-badge">🐳 Conteneurisation</div>
-                        <div class="theme-badge">🔧 DevOps</div>
-                        <div class="theme-badge">🛡️ Zero Trust</div>
+                        <div class="theme-badge">🐳 Conteneurisation (Docker, Podman)</div>
+                        <div class="theme-badge">🖥️ Hyperviseurs (Proxmox, Hyper‑V, ESXi)</div>
+                        <div class="theme-badge">☸️ Orchestration (Kubernetes, Docker Swarm)</div>
+                        <div class="theme-badge">📦 Infra as Code (Terraform, Ansible)</div>
+                        <div class="theme-badge">🔒 Sécurité des conteneurs</div>
+                        <div class="theme-badge">📈 Tendances & évolutions</div>
                     </div>
-                    <p style="margin-top: 30px;">Je suis une veille technologique régulière sur les tendances du secteur IT, les nouvelles solutions en cybersécurité, et les évolutions des technologies d'administration systèmes et réseaux.</p>
+                    <p style="margin-top: 30px; text-align: justify;">
+                        La virtualisation est au cœur de l’infrastructure IT moderne. Je m’informe en continu sur les évolutions des hyperviseurs open source comme <strong>Proxmox VE</strong>, les solutions de conteneurisation telles que <strong>Docker</strong> et <strong>Podman</strong>, et les plateformes d’orchestration (<strong>Kubernetes</strong>). Ma veille couvre également les bonnes pratiques de sécurité, l’automatisation du déploiement et les retours d’expérience de la communauté.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        <strong>Sources utilisées :</strong> Flux RSS (Red Hat, VMware, Proxmox), blogs techniques, forums (r/sysadmin, StackOverflow), conférences en ligne et livres blancs.
+                    </p>
                 </div>
                 
                 <div class="veille-presentation">
                     <div class="diapo-placeholder">
-                        <h3>📊 Votre Diaporama</h3>
-                        <p style="margin: 20px 0;">Consultez mon travail de veille technologique détaillé</p>
-                        <a href="#" class="btn" style="display: inline-block;">Ouvrir le Diaporama ↗</a>
+                        <h3>📊 Ma synthèse</h3>
+                        <p style="margin: 20px 0; line-height: 1.6;">
+                            Découvrez mon document de veille sur les outils de virtualisation, rédigé dans le cadre du BTS SIO. Il comprend un comparatif des hyperviseurs, une étude de l’impact de la conteneurisation et des recommandations pour une PME.
+                        </p>
+                        <a href="#" class="btn" style="display: inline-block;">📄 Consulter le document ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section supplémentaire pour afficher les dernières actualités commentées -->
+            <div class="veille-articles" style="margin-top: 60px;">
+                <h2 style="color: var(--primary); border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 25px;">📰 Dernières actualités commentées</h2>
+                <div class="project-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="p-card">
+                        <div class="p-tag">Proxmox</div>
+                        <h3>Proxmox VE 8.2 disponible</h3>
+                        <p>La dernière version de l’hyperviseur apporte le support de Ceph Reef, l’amélioration des performances de migration et un nouveau kernel Linux 6.8. Intéressant pour la stabilité des clusters de production.</p>
+                        <small>Source : site officiel Proxmox</small>
+                    </div>
+                    <div class="p-card">
+                        <div class="p-tag">Docker</div>
+                        <h3>Docker accélère l’adoption de Wasm</h3>
+                        <p>Docker Desktop intègre désormais un runtime Wasm, permettant d’exécuter des conteneurs légers à côté des conteneurs Linux classiques. Une piste pour les micro‑services.</p>
+                        <small>Source : Docker Blog</small>
+                    </div>
+                    <div class="p-card">
+                        <div class="p-tag">Sécurité</div>
+                        <h3>Faille critique dans runC (CVE‑2024‑…) corrigée</h3>
+                        <p>Une vulnérabilité permettant une évasion de conteneur a été corrigée dans runC. Mise à jour immédiate recommandée pour tous les environnements Docker et Kubernetes.</p>
+                        <small>Source : GitHub Security Lab</small>
+                    </div>
+                    <div class="p-card">
+                        <div class="p-tag">Kubernetes</div>
+                        <h3>K8s 1.30 : les nouveautés</h3>
+                        <p>Apport de la gestion dynamique des ressources, amélioration de la sécurité des pods et support étendu de Windows Server 2025. Un pas de plus vers l’orchestration hybride.</p>
+                        <small>Source : blog Kubernetes officiel</small>
                     </div>
                 </div>
             </div>
