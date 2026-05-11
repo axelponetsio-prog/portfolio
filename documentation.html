@@ -49,35 +49,24 @@
     <script>
         // 📚 Base de données des documents (modifie et ajoute ici)
         const documents = [
-            {
-                title: "Rapport de stage 1ère année",
-                description: "Stage au laboratoire Jean Leray - Nextcloud, brassage, inventaire.",
-                file: "docs/rapport_stage1.pdf",
-                category: "Stage",
-                icon: "📄"
-            },
-            {
-                title: "Rapport de stage 2ème année",
-                description: "Stage au laboratoire Jean Leray - Maintenance, scripts.",
-                file: "docs/rapport_stage2.pdf",
-                category: "Stage",
-                icon: "📄"
-            },
-            {
-                title: "Procédure installation Proxmox",
-                description: "Guide pas à pas pour installer et configurer Proxmox VE.",
-                file: "docs/procedure_proxmox.pdf",
-                category: "Procédure",
-                icon: "⚙️"
-            },
-            {
-                title: "Tutoriel Docker",
-                description: "Introduction à Docker et déploiement d'un serveur web.",
-                file: "docs/tutoriel_docker.pdf",
-                category: "Cours",
-                icon: "📘"
-            },
-            // Ajoute ici tous tes autres documents...
+            // ===== 1ère année =====
+            { title: "KeePass – Gestionnaire de mots de passe", description: "...", file: "docs/Keepass.pdf", category: "1ère année", icon: "🔐" },
+            { title: "PSSI pour le laboratoire", description: "...", file: "docs/PSSI pour le labo.pdf", category: "1ère année", icon: "🛡️" },
+            { title: "Scripts de mise à jour et sauvegarde", description: "...", file: "docs/script_sauv.pdf", category: "1ère année", icon: "💾" },
+            { title: "Update automatique des postes fixes", description: "...", file: "docs/upd_pf.pdf", category: "1ère année", icon: "🔄" },
+            { title: "ETHIC – Plateforme de participation citoyenne", description: "...", file: "docs/ETHIC.pdf", category: "1ère année", icon: "🌱" },
+            { title: "Tri des magazines", description: "...", file: "docs/TRI DES MAGAZINES.pdf", category: "1ère année", icon: "📚" },
+        
+            // ===== 2ème année =====
+            { title: "Documentation Proxmox", description: "...", file: "docs/Docu_Proxmox.pdf", category: "2ème année", icon: "🖥️" },
+            { title: "Installation de Nextcloud", description: "...", file: "docs/Installation-Nextcloud.pdf", category: "2ème année", icon: "☁️" },
+            { title: "Configuration HTTPS pour Nextcloud", description: "...", file: "docs/https_nextcloud.pdf", category: "2ème année", icon: "🔒" },
+            { title: "Résolution de problèmes Proxmox", description: "...", file: "docs/Resolution_prblm_Proxmox.pdf", category: "2ème année", icon: "🔧" },
+            { title: "Récupération de mot de passe Wiki.js", description: "...", file: "docs/recup_mdp_wiki.pdf", category: "2ème année", icon: "🔑" },
+            { title: "Organisation du laboratoire (v2)", description: "...", file: "docs/orga_labo.pdf", category: "2ème année", icon: "🏢" },
+            { title: "Script de sauvegarde de site web", description: "...", file: "docs/script_site_web.pdf", category: "2ème année", icon: "📜" },
+            { title: "Boot d'un PC Windows sur Lubuntu", description: "...", file: "docs/Boot_Lubuntu.pdf", category: "2ème année", icon: "💻" },
+            { title: "Configuration de Windows Server", description: "...", file: "docs/Config_Windows_Serv.pdf", category: "2ème année", icon: "🪟" }
         ];
 
         let activeCategory = 'all';
