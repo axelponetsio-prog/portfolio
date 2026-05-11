@@ -132,17 +132,21 @@
                 `,
                 images: []
             },
-            "parefeu": {
-                title: "Configuration Pare-feu",
+            "zabbix": {
+                title: "Supervision avec Zabbix",
                 description: `
-                    <p>Sécurisation d'un réseau local avec règles de filtrage.</p>
+                    <p>Mise en place d’un serveur Zabbix pour superviser l’ensemble de mon laboratoire virtuel.</p>
                     <ul>
-                        <li>Pare-feu sous Linux (iptables)</li>
-                        <li>Création d'une DMZ pour les services publics</li>
-                        <li>Journalisation des paquets rejetés</li>
+                        <li>Installation de Zabbix Server (MariaDB, Apache) sur Debian 12.</li>
+                        <li>Déploiement des agents Zabbix sur les VMs Linux et Windows.</li>
+                        <li>Configuration de templates (OS Linux, Windows, SNMP pour switches).</li>
+                        <li>Création de triggers (charge CPU > 80%, espace disque < 10%, service arrêté).</li>
+                        <li>Mise en place d’alertes par email via Postfix et notification sur Telegram.</li>
+                        <li>Conception d’un tableau de bord avec cartes réseau et graphes de performance.</li>
+                        <li>Supervision de services web (HTTP/HTTPS), du serveur Nextcloud et du DNS.</li>
                     </ul>
-                `,
-                images: []
+                    <p>Ce TP m’a permis de comprendre l’importance de la supervision proactive et de la réactivité sur incident.</p>
+                `
             },
             "linux-admin": {
                 title: "Administration Linux",
