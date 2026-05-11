@@ -1000,3 +1000,10 @@ footer a:hover {
     }
     
 }
+
+/* Trois colonnes pour le parcours sur écrans larges */
+@media (min-width: 1200px) {
+    .parcours-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
