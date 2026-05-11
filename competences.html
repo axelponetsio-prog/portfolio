@@ -118,92 +118,92 @@
             systemes: {
                 title: "🖥️ Systèmes",
                 description: `
-                    <p>Maîtrise des environnements Windows Server et Linux pour l'administration d'infrastructures.</p>
+                    <p>Maîtrise des environnements Windows Server et Linux, de l’installation à la supervision avancée.</p>
+                    <h3>🪟 Windows Server</h3>
                     <ul>
-                        <li><strong>Windows Server :</strong> Gestion centralisée d’utilisateurs, DHCP, distribution de services. TP de cluster MariaDB, SAMBA, sauvegarde.</li>
-                        <li><strong>Linux Debian/Ubuntu :</strong> Serveur SAN (iSCSI), serveur NAS, GLPI pour la gestion de parc, ROSARIOSIS (logiciel d’admin scolaire).</li>
-                        <li><strong>Scripting Bash & PowerShell :</strong> Automatisation de création d’utilisateurs (TP PowerShell).</li>
+                        <li><strong>Active Directory</strong> : création et gestion d’un domaine, unités d’organisation, stratégies de groupe (GPO), filtrage de sécurité.</li>
+                        <li><strong>DHCP redondant</strong> : split‑scope, réservations, bascule automatique.</li>
+                        <li><strong>Services de fichiers</strong> : partages sécurisés, quotas, DFS, stockage SAN (iSCSI) et NAS.</li>
+                        <li><strong>Haute disponibilité</strong> : cluster MariaDB, cluster de fichiers, sauvegarde Windows Server Backup.</li>
                     </ul>
-                `,
-                images: [
-                    "images/systemes/ad_users.png",
-                    "images/systemes/gpo_editor.png",
-                    "images/systemes/linux_shell.png"
-                ]
+                    <h3>🐧 Linux (Debian/Ubuntu)</h3>
+                    <ul>
+                        <li><strong>Administration courante</strong> : gestion des utilisateurs, permissions, CRON, logs.</li>
+                        <li><strong>Serveurs SAMBA</strong> : intégration d’un serveur Linux dans un domaine Active Directory.</li>
+                        <li><strong>Stockage centralisé</strong> : mise en place d’un serveur NAS, cibles iSCSI.</li>
+                        <li><strong>Gestion de parc</strong> : GLPI + FusionInventory, ROSARIOSIS (logiciel d’administration scolaire).</li>
+                    </ul>
+                    <p>Scripts Bash et PowerShell pour l’automatisation des tâches de maintenance et de création massive d’utilisateurs.</p>
+                `
             },
             reseaux: {
                 title: "🌐 Réseaux",
                 description: `
-                    <p>Mise en œuvre et configuration avancée de réseaux d’entreprise.</p>
+                    <p>Configuration avancée de réseaux d’entreprise, de la conception à la sécurisation.</p>
                     <ul>
-                        <li><strong>Routage dynamique :</strong> TP RIPv1/v2, OSPF, VLSM.</li>
-                        <li><strong>Haute disponibilité :</strong> HSRP pour routeurs et switches.</li>
-                        <li><strong>VLAN :</strong> Configuration statique et dynamique (VTP), agrégation de liens (LACP/PAGP).</li>
-                        <li><strong>Services réseau :</strong> Serveur DHCP, DNS.</li>
-                        <li><strong>VPN & sécurité couche 2 :</strong> IPsec VPN, port-security.</li>
+                        <li><strong>Routage dynamique</strong> : protocoles RIP v1/v2, OSPF (single area, multi‑area), redistribution de routes.</li>
+                        <li><strong>Haute disponibilité</strong> : HSRP, VRRP, basculement transparent des passerelles.</li>
+                        <li><strong>VLAN</strong> : création, trunks 802.1Q, VTP (domaines, modes serveur/client), routage inter‑VLAN (Router on a stick).</li>
+                        <li><strong>Agrégation de liens</strong> : LACP (norme IEEE 802.3ad), PAgP (propriétaire Cisco).</li>
+                        <li><strong>Services réseau</strong> : DHCP (serveur, relais, options avancées), DNS (Bind9, zones directes et inversées, transferts de zone).</li>
+                        <li><strong>VPN & sécurité couche 2</strong> : IPsec VPN site‑à‑site, port‑security (mac sticky, violation modes), 802.1X.</li>
                     </ul>
-                `,
-                images: [
-                    "images/reseaux/routage.png",
-                    "images/reseaux/vlan.png"
-                ]
+                    <p>Tous ces protocoles ont été mis en œuvre dans des TPs avec Cisco Packet Tracer ou sur du matériel physique.</p>
+                `
             },
             securite: {
                 title: "🛡️ Sécurité",
                 description: `
-                    <p>Application des principes de sécurité réseau et système.</p>
+                    <p>Application des principes de défense en profondeur et tests d’intrusion.</p>
                     <ul>
-                        <li><strong>Pare-feu & filtrage :</strong> Configuration de règles sur pare-feu, DMZ.</li>
-                        <li><strong>Tests d’intrusion :</strong> TP Kali Linux (infiltration d’un serveur web).</li>
-                        <li><strong>Sécurité switch :</strong> Port-security, authentification 802.1X.</li>
-                        <li><strong>VPN :</strong> Mise en place d’un tunnel IPsec.</li>
+                        <li><strong>Pare‑feu</strong> : configuration de règles entrantes/sortantes, DMZ, translation d’adresses (NAT/PAT), journalisation.</li>
+                        <li><strong>Tests d’intrusion</strong> : utilisation de Kali Linux (nmap, Metasploit, hydra) pour auditer un serveur web et proposer des correctifs.</li>
+                        <li><strong>Sécurité des commutateurs</strong> : port‑security (nombre max de MAC, violation shutdown/restrict), DHCP snooping, Dynamic ARP Inspection.</li>
+                        <li><strong>VPN</strong> : tunnels IPsec avec pré‑partage de clé, authentification par certificats.</li>
+                        <li><strong>Veille technologique</strong> : suivi des vulnérabilités (CVE), abonnement flux CERT‑FR, participation à des challenges Root‑Me.</li>
                     </ul>
-                `,
-                images: []
+                    <p>Ces pratiques me permettent d’avoir une approche proactive de la sécurité.</p>
+                `
             },
             virtualisation: {
                 title: "☁️ Virtualisation",
                 description: `
-                    <p>Virtualisation avancée avec Proxmox, Docker et solutions Microsoft.</p>
+                    <p>Maîtrise des hyperviseurs de type 1 et 2, et de la conteneurisation.</p>
                     <ul>
-                        <li><strong>Hyperviseurs :</strong> Proxmox, Hyper-V, VirtualBox.</li>
-                        <li><strong>Conteneurisation :</strong> TP Docker (déploiement d’applications isolées).</li>
-                        <li><strong>Infrastructure :</strong> Gestion des ressources (CPU, RAM, stockage), snapshots, sauvegardes.</li>
+                        <li><strong>Proxmox VE</strong> : création de machines virtuelles, conteneurs LXC, snapshots, sauvegardes programmées, migration à chaud.</li>
+                        <li><strong>Hyper‑V</strong> : création de switchs virtuels, machines de génération 1/2, points de contrôle.</li>
+                        <li><strong>Docker</strong> : écriture de Dockerfiles, utilisation de docker‑compose pour des stacks multi‑services (Nextcloud + MariaDB, WordPress).</li>
+                        <li><strong>Gestion des ressources</strong> : allocation CPU, RAM, stockage, Thin Provisioning, optimisation des performances.</li>
                     </ul>
-                `,
-                images: [
-                    "images/virtualisation/proxmox_dashboard.png",
-                    "images/virtualisation/docker.png"
-                ]
+                    <p>J’utilise la virtualisation au quotidien dans mon home‑lab pour tester des architectures avant de les déployer en stage.</p>
+                `
             },
             outils: {
                 title: "⚙️ Outils & Services",
                 description: `
-                    <p>Mise en place de services collaboratifs et de supervision.</p>
+                    <p>Mise en place de services collaboratifs et de supervision en entreprise.</p>
                     <ul>
-                        <li><strong>Nextcloud :</strong> Stockage centralisé sécurisé.</li>
-                        <li><strong>Messagerie :</strong> Serveur mail complet (Postfix, Exim4) avec webmail.</li>
-                        <li><strong>Supervision :</strong> Zabbix pour la surveillance réseau.</li>
-                        <li><strong>Git :</strong> Contrôle de versions et collaboration.</li>
+                        <li><strong>Nextcloud</strong> : installation, configuration, gestion des utilisateurs, partages sécurisés, sauvegarde externe.</li>
+                        <li><strong>Messagerie</strong> : déploiement d’un serveur mail complet (Postfix, Dovecot, Webmail Roundcube), filtrage anti‑spam, SPF/DKIM/DMARC.</li>
+                        <li><strong>Supervision</strong> : Zabbix (agents, templates, triggers, cartes réseau), alertes par email, tableaux de bord personnalisés.</li>
+                        <li><strong>Git</strong> : branches, merge, pull requests, GitHub Actions pour le déploiement continu de ce portfolio.</li>
+                        <li><strong>SSH</strong> : administration distante sécurisée, tunnels SSH, clés asymétriques.</li>
                     </ul>
-                `,
-                images: [
-                    "images/outils/nextcloud.png",
-                    "images/outils/zabbix.png"
-                ]
+                    <p>Ces outils sont au cœur de mon quotidien d’administrateur.</p>
+                `
             },
             autres: {
                 title: "📊 Autres",
                 description: `
-                    <p>Compétences transversales essentielles.</p>
+                    <p>Compétences transversales indispensables en entreprise.</p>
                     <ul>
-                        <li><strong>Développement web :</strong> HTML, CSS, JavaScript (réalisation de ce portfolio).</li>
-                        <li><strong>Planification :</strong> Diagrammes MPM, PERT, GANTT.</li>
-                        <li><strong>Documentation technique :</strong> Rédaction de guides et de procédures.</li>
-                        <li><strong>Langues :</strong> Anglais courant technique.</li>
+                        <li><strong>Développement web</strong> : HTML5, CSS3, JavaScript (réalisation de ce portfolio responsive avec animations et terminal interactif).</li>
+                        <li><strong>Planification de projet</strong> : diagrammes MPM, PERT, GANTT, gestion des ressources.</li>
+                        <li><strong>Documentation technique</strong> : guides d’installation, procédures pas‑à‑pas, schémas réseau avec draw.io.</li>
+                        <li><strong>Anglais technique</strong> : lecture et rédaction de documentations, participation à des forums Stack Overflow, veille en anglais.</li>
                     </ul>
-                `,
-                images: []
+                    <p>Je porte une grande importance à la communication écrite et à la rigueur dans le suivi des projets.</p>
+                `
             }
         };
 
