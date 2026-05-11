@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | Axel Ponet</title>
+    <meta name="description" content="Documentation technique, rapports de stage, procédures par Axel Ponet.">
+    <meta property="og:title" content="Documentation - Axel Ponet">
+    <meta property="og:description" content="Ressources et documents techniques.">
+    <meta property="og:image" content="https://axelponetsio-prog.github.io/portfolio/images/preview.png">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="container">
+            <div class="logo">AP<span>.admin</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" onclick="fadeOutIn(event)">Accueil</a></li>
+                <li><a href="parcours.html" onclick="fadeOutIn(event)">Parcours</a></li>
+                <li><a href="competences.html" onclick="fadeOutIn(event)">Compétences</a></li>
+                <li><a href="projets.html" onclick="fadeOutIn(event)">Projets</a></li>
+                <li><a href="veille.html" onclick="fadeOutIn(event)">Veille</a></li>
+                <li><a href="documentation.html" onclick="fadeOutIn(event)">Documentation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-section">
+        <div class="container">
+            <h1 class="page-title">📁 Documentation</h1>
+
+            <div class="search-container">
+                <input type="text" id="searchDocs" placeholder="Rechercher un document...">
+            </div>
+
+            <!-- Filtres par catégorie -->
+            <div class="filter-buttons" id="docFilters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <!-- Les boutons de catégories seront ajoutés dynamiquement -->
+            </div>
+
+            <!-- Conteneur des cartes de documents -->
+            <div class="documents-grid" id="documentsGrid"></div>
+        </div>
+    </section>
+
+    <script>
+        // 📚 Base de données des documents (modifie et ajoute ici)
+        const documents = [
+            {
+                title: "Rapport de stage 1ère année",
+                description: "Stage au laboratoire Jean Leray - Nextcloud, brassage, inventaire.",
+                file: "docs/rapport_stage1.pdf",
+                category: "Stage",
+                icon: "📄"
+            },
+            {
+                title: "Rapport de stage 2ème année",
+                description: "Stage au laboratoire Jean Leray - Maintenance, scripts.",
+                file: "docs/rapport_stage2.pdf",
+                category: "Stage",
+                icon: "📄"
+            },
+            {
+                title: "Procédure installation Proxmox",
+                description: "Guide pas à pas pour installer et configurer Proxmox VE.",
+                file: "docs/procedure_proxmox.pdf",
+                category: "Procédure",
+                icon: "⚙️"
+            },
+            {
+                title: "Tutoriel Docker",
+                description: "Introduction à Docker et déploiement d'un serveur web.",
+                file: "docs/tutoriel_docker.pdf",
+                category: "Cours",
+                icon: "📘"
+            },
+            // Ajoute ici tous tes autres documents...
+        ];
+
+        let activeCategory = 'all';
+
+        function renderDocuments(category = 'all', searchTerm = '') {
+            const grid = document.getElementById('documentsGrid');
+            let filtered = documents;
+
+            if (category !== 'all') {
+                filtered = filtered.filter(doc => doc.category === category);
+            }
+
+            if (searchTerm) {
+                const term = searchTerm.toLowerCase();
+                filtered = filtered.filter(doc => 
+                    doc.title.toLowerCase().includes(term) ||
+                    doc.description.toLowerCase().includes(term)
+                );
+            }
+
+            grid.innerHTML = '';
+            filtered.forEach(doc => {
+                const card = document.createElement('div');
+                card.className = 'p-card doc-card';
+                card.innerHTML = `
+                    <div class="p-tag">${doc.icon} ${doc.category}</div>
+                    <h3>${doc.title}</h3>
+                    <p>${doc.description}</p>
+                    <a href="${doc.file}" target="_blank" class="btn btn-outline" style="margin-top:10px; display: inline-block;">
+                        📎 Consulter
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function setupCategories() {
+            const categories = [...new Set(documents.map(doc => doc.category))];
+            const filterContainer = document.getElementById('docFilters');
+            // On garde le bouton "Tous" déjà présent
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.dataset.filter = cat;
+                btn.textContent = cat;
+                filterContainer.appendChild(btn);
+            });
+
+            // Gestion des clics sur les filtres
+            filterContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('filter-btn')) {
+                    document.querySelectorAll('#docFilters .filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    activeCategory = e.target.dataset.filter;
+                    const searchInput = document.getElementById('searchDocs');
+                    renderDocuments(activeCategory, searchInput.value);
+                }
+            });
+        }
+
+        // Barre de recherche
+        document.getElementById('searchDocs').addEventListener('input', (e) => {
+            renderDocuments(activeCategory, e.target.value);
+        });
+
+        // Initialisation
+        setupCategories();
+        renderDocuments();
+
+        // Transitions
+        function fadeOutIn(event) {
+            event.preventDefault();
+            const url = event.target.href;
+            document.body.classList.add('page-exit');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 400);
+        }
+        window.addEventListener('load', () => {
+            document.body.classList.add('page-enter');
+        });
+    </script>
+</body>
+</html>
